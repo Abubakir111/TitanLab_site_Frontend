@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TitanLab</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="ap23pa.png" alt="Your Image" class="header-image" style="margin-left: 100px; width: 50px ;">
+            <font size="6" color="black" face="Arial black">TITAN LAB</font>
+            <div class="header-actions">
+                <div id="cart-container">
+                    <img src="Vector.png" alt="Корзина" id="cart-image" style=" margin-right: 290px; margin-top: 10px;" onmouseover="showCart()" onmouseout="hideCart()">
+                    <div class="cart" id="cart">
+                    </div>
+                    <span id="cart-counter" class="cart-count" style="margin-right: 50px; font-size: 10px;">0</span>
+                </div>
+            </div>
+        </div>
+        <button onclick="openForm()" class="BTN-FORM">Оставить Заявку</button>
+        <div id="myForm" class="form-popup">
+            <div class="form-content" >
+                <span class="close" onclick="closeForm()">&times;</span>
+                <form class="form-container">
+                    <h3 style="font-family: Arial Black;">Оставить заявку</h3>
+                    <input id="nameInput" type="text" placeholder="Ваше имя*" name="name" required>
+<input id="phoneInput" type="text" placeholder="Номер телефона*" name="phone" required>
+<input id="telegramInput" type="text" placeholder="Телеграм для связи*" name="telegram" required>
+                    <p style="font-size: 13px; font-family: Arial Black; color: #000000;">*Нажимая на кнопку, Вы соглашаетесь на обработку персональных данных.</p>
+                    <button type="submit" class="btn" onclick="saveToFile()">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar">
+
+        <a class="nav-item active" href="#" onclick="openHome()">Главная</a>
+        <a class="nav-item" href="#product">Каталог</a>
+        <a class="nav-item" href="#">О Компании</a>
+        <a class="nav-item" href="#">Отзывы</a>
+        <a class="nav-item" href="#">Контакты</a>
+        <div class="navbar_animation"></div>
+    </nav>
+
+
+    <main>
+
+        <div class="product-container">
+            <img class="product-image" src="08a0a356-032c-4626-abe3-4b4f5d5ba2a8 (1).jpg" alt="Product Image" id="mainImage">
+            <div class="product-details">
+
+
+                <h1 style="font-family: Arial Black;">SIBERIA</h1>
+
+                <p style="font-family: Arial Black;">Вкус:</p>
+                <p class="boxes-kolvo">Кол-во:</p>
+
+                <select id="grams-select" style="font-family: Arial Black; ">
+                    <option value="13" style="font-family: Arial Black;">13 г</option>
+                    <option value="16" style="font-family: Arial Black;">16 г</option>
+                    <option value="SLIM" style="font-family: Arial Black;">SLIM</option>
+                </select>
+
+
+                <input placeholder="Кол-во" id="boxes-select" class="boxes">
+                    
+            </input>
+
+
+
+
+                <p style="font-family: trebuchet ms;">SIBERIA — это достаточно крепкий табачный продукт . Самый слабый продукт серии имеет крепость 24 мг/г, а самые крепкие — 43 мг/г. Поэтому такой жевательный табак подходит только для опытных ценителей снюса. </p>
+                <p style="font-family: trebuchet ms;">SIBERIA является эталоном качества среди крепкого жевательного табака. Бренд тщательно следит за качеством своей продукции: только сырье высокого сорта отправляется в производство, а обработка проходит по шведским стандартам.
+                </p>
+
+                <p style="font-family: trebuchet ms;">SIBERIA создана для любителей качества. Яркий вкус и приятные ощущения во время использования- лишь несколько преимуществ, благодаря которым продукт стал на столько популярен.</p>
+                <p style="font-family: Arial Black; margin-top: -10px;">Цена: <span id="price">300 руб.</span></p>
+                <div id="cart-container">
+
+
+
+
+
+
+
+                </div>
+                <button style="font-family: arial black;" class="Cart-add" onclick="addProductToCart(1, 'SIBERIA')">Добавить в корзину</button>
+            </div>
+
+
+        </div>
+        </div>
+        <div class="product-images" style="justify-content: space-between; padding: 0; margin-top: -25px; ">
+            <img class="product-image" src="08a0a356-032c-4626-abe3-4b4f5d5ba2a8 (1).jpg" alt="Small Image 1" onclick="changeMainImage('08a0a356-032c-4626-abe3-4b4f5d5ba2a8 (1).jpg')">
+            <img class="product-image" src="01bf5b87-ace8-4c88-8f46-5b9990d8db36.jpg" alt="Small Image 2" onclick="changeMainImage('01bf5b87-ace8-4c88-8f46-5b9990d8db36.jpg')">
+            <img class="product-image" src="08a0a356-032c-4626-abe3-4b4f5d5ba2a8 (1).jpg" alt="Small Image 2" onclick="changeMainImage('path/to/large-image2.jpg')">
+        </div>
+        </section>
+
+        <footer>
+            <div class="contact-info " style="font-family: Arial Black; margin-bottom: 7%; " id="contact">
+                <h2>Контактная информация</h2>
+                <!-- Добавьте вашу контактную информацию здесь -->
+            </div>
+
+            <div class="social-icons " style="margin-top: -160px; ">
+
+                <a href="https://vk.com/natrixd " target="_blank "><img src="вк.png " alt="VK " style="margin-right: 20px; "></a>
+                <a href="https://web.telegram.org/k/ " target="_blank "><img src="тг.png " alt="Telegram "></a>
+                <a href="https://www.figma.com/file/critQet4LBfgkezNCOu5Ff/TitanLab?type=design&node-id=80-87&mode=design&t=IAinTDluUz9KLlmh-0 " target="_blank "><img src="Ватсап.png " alt="WhatsApp " style="margin-left: 20px; "></a>
+                <img src="лого с названием.png " alt="WhatsApp " style="margin-left: 70%; ">
+            </div>
+        </footer>
+
+
+       <script src = "index2.js"></script>
+
+
+</body>
+
+
+
+</html>

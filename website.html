@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TitanLab</title>
+    <link rel="stylesheet" href="./css/styles1.css" />
+    <!-- <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+  </head>
+  <body>
+    <header>
+      <div class="header-content" id="header">
+        <img
+          src="./images/icons/logo.png"
+          alt="Your Image"
+          class="header-image"
+        />
+        <!--ap23pa.png  -->
+        <div class="header-mobil-container">
+          <img class="header-mobil-logo" src="./images/icons/logo.png" alt="" />
+          <span class="brand-title">TITAN LAB</span>
+        </div>
+        <div class="header-actions">
+          <button class="cart">
+            <!--Vector.png -->
+            <img
+              src="./images/icons/basket.png"
+              alt="Корзина"
+              id="cart-image"
+              class="cart-image"
+              onmouseover="showCart()"
+              onmouseout="hideCart()"
+            />
+            <div class="cart-count" id="cart">0</div>
+          </button>
+          <div class="btn-Form-container">
+            <button class="btn-FORM" onclick="openForm()">
+              Оставить заявку
+            </button>
+            <img
+              class="mobil-burger"
+              src="./images/icons/menu_bar.png"
+              alt=""
+            />
+          </div>
+          <div id="myForm" class="form-popup" style="z-index: 500">
+            <div>
+              <form action="submit.php" class="form-container" method="POST">
+                <button class="form-popup-crose-btn">
+                  <img
+                    class="crose"
+                    src="./images/icons/cross.png"
+                    alt="cross"
+                    onclick="closeForm()"
+                  />
+                </button>
+                <div class="form-content">
+                  <h3 class="form-container-h3">Оставить заявку</h3>
+                  <input
+                    type="text"
+                    placeholder="Ваше имя*"
+                    name="name"
+                    required
+                    class="form-popup-input"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Номер телефона*"
+                    name="phone"
+                    required
+                    class="form-popup-input"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Телеграм для связи*"
+                    name="telegram"
+                    required
+                    class="form-popup-input"
+                  />
+                  <p class="form-popup-massage">
+                    *Нажимая на кнопку, Вы соглашаетесь на обработку
+                    персональных данных.
+                  </p>
+                  <button type="submit" class="button-Form">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- модалка проверка возраста -->
+    <div id="ageModal" class="modal" style="z-index: 3">
+      <div class="modal-content">
+        <img
+          class="image-content"
+          src="./images/icons/logo_title.png"
+          alt="logo"
+        />
+        <p style="font-family: Arial Black">
+          Подтвердите что Вам больше 18 лет.
+        </p>
+        <div class="button-container">
+          <button class="primary-button" onclick="confirmAge()">
+            Мне больше 18 лет
+          </button>
+          <button class="secondary-button" onclick="rejectAge()">
+            Мне меньше 18 лет
+          </button>
+        </div>
+        <div class="info-age" style="font-family: Arial Black">
+          <h1>
+            Сайт носит информационный характер и не рекламирует табачную
+            продукцию. Вся информация представлена в целях ознакомления,<br />
+            а не агитации или рекламирования товара.<br />
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar">
+        <a class="nav-item active" href="#imagenavigation">Главная</a>
+        <a class="nav-item" href="#product">Каталог</a>
+        <a class="nav-item" href="#about-company">О Компании</a>
+        <a class="nav-item" href="#reviews">Отзывы</a>
+        <a class="nav-item" href="#contact">Контакты</a>
+        <div class="navbar_animation"></div>
+    </nav>
+
+    <div class="slider-container-img">
+        <div class="slider" id="imagenavigation">
+            <img class="imagenavigation" src="370d6633-4c4d-402e-a1a4-f31d19c551e6.jpg" alt="ElfBar">
+            <img class="imagenavigation" src="" alt="Image 2">
+            <img class="imagenavigation" src="" alt="Image 3">
+        </div>
+    </div>
+    <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <section class="feature-section">
+        <div class="feature-container">
+            <div class="feature-item delivery">
+                <img class="feature-item.delivery::before" src="Доставка.png" alt="ElfBar" style="margin: 20px;">
+                <p>
+                    <font size="5" color="black" face="Arial black">Доставка</font> <span class="additional-info" style="font-size: 20px;">Дополнительная<br> информация<br></span>
+                </p>
+            </div>
+            <div class="feature-item quality-guarantee">
+
+                <img class="feature-item.delivery::before" src="Галочка.png" alt="ElfBar" style="margin: 20px;">
+                <p>
+                    <font size="5" color="black" face="Arial black">Гарантия качества</font> <span class="additional-info" style="font-size: 20px;">Дополнительная<br> информация<br></span>
+
+
+                </p>
+            </div>
+
+            <div class="feature-item discount">
+                <img class="feature-item.delivery::before" src="Скидка.png" alt="ElfBar" style="margin: 20px;">
+                <p>
+
+                    <font size="5" color="black" face="Arial black">Скидка 10%</font> <span class="additional-info " style="font-size: 20px;">Дополнительная<br> информация<br></span>
+                </p>
+
+            </div>
+        </div>
+    </section>
+    <section class="product-section " id="product">
+        <h2 class="title-product " style="font-family: Arial Black; margin-bottom: 60px; margin-left: 8%; ">Электронные сигареты</h2>
+        <div class="product-slider-container">
+            <div class="product-slider-wrapper">
+                <div class="product-slider">
+                    <div class="product-block">
+                        <img src="f49c6492-f23b-4253-8eaa-b456ca3ce0d4.jpg " alt="Product 1 ">
+                        <p class="product-title ">WAKA</p>
+                        <button>Подробнеe</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="a1953caa-c3a4-40a9-94f6-0f6d27f94d2e (1).jpg " alt="Product 1 ">
+                        <p class="product-title ">PLONQ</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="a1953caa-c3a4-40a9-94f6-0f6d27f94d2e (1).jpg " alt="Product 1 ">
+                        <p class="product-title ">WAKA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="a1953caa-c3a4-40a9-94f6-0f6d27f94d2e (1).jpg  " alt="Product 1 ">
+                        <p class="product-title ">WAKA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="a1953caa-c3a4-40a9-94f6-0f6d27f94d2e (1).jpg  " alt="Product 1 ">
+                        <p class="product-title ">WAKA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="a1953caa-c3a4-40a9-94f6-0f6d27f94d2e (1).jpg  " alt="Product 1 ">
+                        <p class="product-title ">WAKA</p>
+                        <button>Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="nextslides" onclick="moveSlide(1)">❯</button>
+        </div>
+    </section>
+
+
+    <section class="product-section">
+        <h2 class="title-product" style="font-family: Arial Black; margin-left: 8%;">Жевательный табак</h2>
+        <div class="product-slider-container">
+            <div class="product-slider-wrapper">
+                <div class="product-slider" id="product-slider-2">
+                    <div class="product-block">
+                        <img src="01bf5b87-ace8-4c88-8f46-5b9990d8db36.jpg" alt="Product 1">
+                        <p class="product-title">ODENS</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="08a0a356-032c-4626-abe3-4b4f5d5ba2a8 (1).jpg" alt="Product 1">
+                        <p class="product-title">SIBERIA</p>
+                        <button onclick="openProductDetails()">Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="01bf5b87-ace8-4c88-8f46-5b9990d8db36.jpg" alt="Product 1">
+                        <p class="product-title">ODENS</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="01bf5b87-ace8-4c88-8f46-5b9990d8db36.jpg" alt="Product 1">
+                        <p class="product-title">ODENS</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="01bf5b87-ace8-4c88-8f46-5b9990d8db36.jpg" alt="Product 1">
+                        <p class="product-title">ODENS</p>
+                        <button>Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="nextslides1" onclick="moveSlide(1)">❯</button>
+    </section>
+
+    <section class="product-section">
+        <h2 class="title-product" style="font-family: Arial Black; margin-left: 8%;">IQOS</h2>
+        <div class="product-slider-container">
+            <div class="product-slider-wrapper">
+                <div class="product-slider" id="product-slider-3">
+                    <div class="product-block">
+                        <img src="80b43fb3-9cd7-431b-a737-e1ffd177a62c.jpg" alt="Product 1">
+                        <p class="product-title">ILUMA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="7ec293ac-387f-4733-a21b-c3cc80600382.jpg" alt="Product 1">
+                        <p class="product-title">ILUMA PRIME</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="7ec293ac-387f-4733-a21b-c3cc80600382.jpg" alt="Product 1">
+                        <p class="product-title">ILUMA PRIME</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="7ec293ac-387f-4733-a21b-c3cc80600382.jpg" alt="Product 1">
+                        <p class="product-title">ILUMA PRIME</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="7ec293ac-387f-4733-a21b-c3cc80600382.jpg" alt="Product 1">
+                        <p class="product-title">ILUMA PRIME</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block">
+                        <img src="7ec293ac-387f-4733-a21b-c3cc80600382.jpg" alt="Product 1">
+                        <p class="product-title">ILUMA PRIME</p>
+                        <button>Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="nextslides2" onclick="moveSlide(1)">❯</button>
+    </section>
+
+
+    <section class="product-section ">
+        <h2 class="title-product " style="font-family: Arial Black; margin-left: 8%; ">Стики</h2>
+        <div class="product-slider-container">
+            <div class="product-slider-wrapper">
+                <div class="product-slider" id="product-slider-4">
+                    <div class="product-block ">
+                        <img src="5e51c64d-e879-4071-9105-bae4ac24d567.jpg " alt="Product 1 ">
+                        <p class="product-title ">TEREA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="5e51c64d-e879-4071-9105-bae4ac24d567.jpg " alt="Product 1 ">
+                        <p class="product-title ">TEREA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="5e51c64d-e879-4071-9105-bae4ac24d567.jpg " alt="Product 1 ">
+                        <p class="product-title ">TEREA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="5e51c64d-e879-4071-9105-bae4ac24d567.jpg " alt="Product 1 ">
+                        <p class="product-title ">TEREA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="5e51c64d-e879-4071-9105-bae4ac24d567.jpg " alt="Product 1 ">
+                        <p class="product-title ">TEREA</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-block ">
+                        <img src="5e51c64d-e879-4071-9105-bae4ac24d567.jpg " alt="Product 1 ">
+                        <p class="product-title ">TEREA</p>
+                        <button>Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="nextslides3" onclick="moveSlide(1)">❯</button>
+    </section>
+
+    <section class="about-company-section ">
+        <h2 class="section-title " style="font-family: Arial Black; " id="about-company">О компании</h2>
+        <div class="section-content ">
+
+
+            <div class="info-text " style="font-family: trebuchet ms; margin-left: 90px; margin-right: 90px " ;>Titan Lab - это компания занимающаяся оптовыми и розничными продажами с 2018 года. На нашем счету уже более 1000 успешных сделок и 99% положительных отзывов от покупателей. Наша команда тщательно подходит к выбору товара. Именно поэтому мы
+                работаем напрямую с производителями, что дает гарантию качества нашей продукции. В нашем ассортименте более 500 позиций различных табачных изделий и электронных девайсов: от всеми известных до эксклюзивных брендов. Вся лучшая табачная
+                продукция и девайсы для курения собраны в одном месте, чтобы сделать ваш выбор проще и доступнее. Накопленные знания помогают уверенно подбирать для вас продукцию по вкусу и крепости, под настроение и желания.</div>
+        </div>
+        <div id="reviews ">
+            <h1 class=" review-info " style="font-family: Arial Black; font-size:45px; margin-top: 40px;" id="reviews">Отзывы</h1>
+            <div class="slider-container ">
+
+
+                <div class="slides">
+                    <div class="slide ">
+                        <div class="review ">
+                            <img class="avatar " src="Доставка.png " alt="Аватар 1 ">
+                            <p class="nickname " style="font-size: 20px; font-family: Arial Black; ">ДЫМДымский</p>
+                            <p class="rating " style="font-size: 24px; ">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                                <p class="text " style="font-family: Trebuchet MS; "><br>Заказала себе недавно электронные сигареты WAKA и осталась очень довольна!<br> Во-первых, устройство отличается крутым дизайном и удобной формой, во-вторых, были на связи в течении всей цепочки от оплаты счета до сверения
+                                    кодов. Рекомендую всем, кто переходит на работу в белую. Доставили через 7 дней, как и говорили. Доставкой довольна.</p>
+
+                        </div>
+                        <div class="review">
+                            <img class="avatar " src="Доставка.png " alt="Аватар 2 ">
+                            <p class="nickname " style="font-size: 20px; font-family: Arial Black; ">Царь Пар</p>
+                            <p class="rating " style="font-size: 24px; ">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                            </p>
+                            <p class="text " style="font-family: Trebuchet MS; ">Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него бросают курить. Много разных позиций по по вкусу, брендам и граммам. Лучше всего у нас продаются позиции по 16 грамм.Самый популярный на данный
+                                момент это оденс колд драй 16 мг никотина, хорошее качество продукта и хорошая маржинальность для акцизных товаров.Поставщику спасибо за оперативность, желаем дальнейшего процветания!</p>
+                        </div>
+                        <div class="review ">
+                            <img class="avatar " src=" " alt="Аватар 3 ">
+                            <p class="nickname " style="font-size: 20px; font-family: Arial Black; ">Денис Погодин</p>
+                            <p class="rating " style="font-size: 24px; ">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                            </p>
+                            <p class="text " style="font-family: Trebuchet MS; " id="review2Text ">Курю уже более 2-х лет, срок не большой, очень хочу бросить. Думаю, что данный продукт достаточно эффективен как способ просить курить. В основном зависимость возникает не от никотина, а от привычки что-либо потянуть. Я не
+                                думаю, что электронная сигарета может помочь лучше, чем жевательный табак, так как она не избавляет от привычки тянуть что-то. Жевательный табак содержит достаточно никотина для того...</p>
+                            <span class="read-more-trigger " onclick="toggleText( 'review2Text') ">Читать полностью</span>
+                            <div id="review2Text" style="display: none;">
+                            
+                                Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него бросают курить.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide ">
+                        <div id="contact "></div>
+                        <div class="review ">
+                            <img class="avatar " src=" " alt="Аватар 5 ">
+                            <p class="nickname ">Никнейм 5</p>
+                            <p class="rating ">Рейтинг: 4 звезды</p>
+                            <p class="text ">Текст отзыва 5</p>
+                        </div>
+                        <div class="review ">
+                            <img class="avatar " src=" " alt="Аватар 6 ">
+                            <p class="nickname ">Никнейм 6</p>
+                            <p class="rating ">Рейтинг: 3 звезды</p>
+                            <p class="text ">Текст отзыва 6</p>
+                            <div class="slide ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="prev" onclick="prevSlide() " style="margin-top: 8%;">&#10094;</div>
+            <div class="next" onclick="nextSlide() " style="margin-top: 8%;">&#10095;</div>
+
+            <h1 class="title-document ">Документы и сертификаты</h1>
+            <div class="container ">
+
+                <div class="column " id="column1 ">
+                    <a class="document " href="Новый-документ.pdf " download>
+                        <img src="вк.png " alt="Картинка 1 ">
+                        <p style="font-family: Arial Black; ">Свидетельство Роспатента о торговой марке</p>
+                    </a>
+
+                    <a class="document " href="Новый-документ.pdf " download>
+                        <img src="вк.png " alt="Картинка 2 ">
+                        <p style="font-family: Arial Black; ">Декларация о соответствии УПД с номерами</p>
+                    </a>
+
+                    <a class="document " href="Новый-документ.pdf " download>
+                        <img src="вк.png " alt="Картинка 3 ">
+                        <p style="font-family: Arial Black; ">Честный знак</p>
+                    </a>
+                </div>
+
+                <div class="column " id="column2 ">
+                    <a class="document " href="Новый-документ.pdf " download>
+                        <img src="вк.png " alt="Картинка 4 " style="margin-bottom: 30px; ">
+                        <p style="font-family: Arial Black; margin-top: -10px; ">Декларация ЕАС</p>
+                    </a>
+
+                    <a class="document " href="Новый-документ.pdf " download>
+                        <img src="вк.png " alt="Картинка 5 " style="margin-bottom: 70px; ">
+                        <p style="font-family: Arial Black; margin-top: -56px; ">Сертификат Качества</p>
+                    </a>
+                </div>
+            </div>
+
+
+            <footer>
+                <div class="contact-info " style="font-family: Arial Black; margin-bottom: 7%; " id="contact">
+                    <h2>Контактная информация</h2>
+                 
+                </div>
+
+                <div class="social-icons " style="margin-top: -160px; ">
+
+                    <a href="https://vk.com/natrixd " target="_blank "><img src="вк.png " alt="VK " style="margin-right: 20px; "></a>
+                    <a href="https://web.telegram.org/k/ " target="_blank "><img src="тг.png " alt="Telegram "></a>
+                    <a href="https://www.figma.com/file/critQet4LBfgkezNCOu5Ff/TitanLab?type=design&node-id=80-87&mode=design&t=IAinTDluUz9KLlmh-0 " target="_blank "><img src="Ватсап.png " alt="WhatsApp " style="margin-left: 20px; "></a>
+                    <img src="лого с названием.png " alt="WhatsApp " style="margin-left: 70%; " class="TITANLOGOAPP">
+                </div>  -->
+    <!-- </footer>  -->
+
+    <script src="./js/index1.js"></script>
+  </body>
+</html>
