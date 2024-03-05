@@ -35,6 +35,7 @@ header {
   justify-content: center;
   align-items: center;
   background: white;
+  padding: 0px 122px 0px 144px;
 }
 
 .header-content {
@@ -150,7 +151,7 @@ header {
   z-index: 3;
 }
 
-a {
+.nav-item {
   text-decoration: none;
   color: #111;
   text-align: center;
@@ -204,57 +205,70 @@ footer {
 }
 
 .feature-section {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #f8f8f800;
-}
-
-.imagenavigation {
   width: 100%;
-  /* Это сохранит пропорции изображения */
-  padding-top: 100px;
-  z-index: -3000;
+  text-align: center;
+  padding: 55px 125px 55px 144px;
+  background-color: #f8f8f800;
+  border-bottom: 1px solid rgb(180, 180, 180);
 }
 
 .feature-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
 }
 
 .feature-item {
   display: flex;
   align-items: center;
+  column-gap: 24px;
+}
+.feature-item-img {
+  width: 95px;
+  height: 55.07px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feature-title-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  text-align: start;
+}
+.feature-title-container h3 {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 12%;
   text-align: left;
-  position: relative;
 }
-
 .additional-info {
-  display: block;
-  margin-left: 5px;
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 12%;
+  text-align: left;
+  width: 85%;
 }
-
-.feature-item.delivery::before {
-  background-image: url("Доставка.png");
-}
-
 .title {
   font-weight: bold;
   color: black;
 }
 
-.additional-info {
+/* .additional-info {
   display: table;
   margin: 0 auto;
   /* для центрирования display: table; не нужно указывать ширину блока, она рассчитывается самостоятельно */
-  white-space: pre-line;
-  /* не нужен <br> */
-  word-wrap: break-word;
-  /* чтобы слова переносились на маленьком экране */
-  margin-right: 50%;
-}
+/* white-space: pre-line; */
+/* не нужен <br> */
+/* word-wrap: break-word; */
+/* чтобы слова переносились на маленьком экране */
+/* margin-right: 50%; */
+/* } */
 
 .product-section {
   text-align: start;
@@ -323,10 +337,6 @@ section {
   justify-content: center;
   gap: 20px;
   flex-direction: column;
-}
-
-.additional-info {
-  font-size: 30px;
 }
 
 .slider-container {
@@ -683,46 +693,51 @@ section {
   font-family: Arial Black;
 }
 
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(155, 155, 155, 0.5);
-  /* Пример прозрачности */
-  backdrop-filter: blur(15px);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  border: none;
-  color: rgb(30, 30, 30);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: 10%;
-  background-repeat: no-repeat;
-}
-
-.prev-btn {
-  left: 20px;
-  background-image: url("");
-}
-
-.next-btn {
-  right: 20px;
-  background-image: url("path/to/right-arrow-image.png");
-}
-.prev-btn:hover,
-.next-btn:hover {
-  transition: cubic-bezier(0.39, 0.575, 0.565, 1);
-  background-color: rgb(255, 0, 242);
+.slider-container-img {
+  width: 100%;
+  height: max-content;
+  position: relative;
+  overflow: hidden;
+  margin-top: 163px;
 }
 .slider {
   display: flex;
   width: 100%;
   transition: transform 0.5s;
 }
+.imagenavigation {
+  width: 100%;
+  height: max-content;
+}
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+  background: rgba(217, 217, 217, 0.58);
+}
+.prev-btn {
+  left: 20px;
+}
+.next-btn {
+  right: 20px;
+}
+
 .nextrewievBtn {
   cursor: pointer;
   color: #ffffff;
@@ -845,8 +860,43 @@ section {
 }
 
 @media screen and (max-width: 1220px) {
+  header {
+    padding: 0px 0px 0px 0px;
+  }
   .header-content {
     justify-content: space-around;
+  }
+  .nav-item {
+    font-size: 14px;
+  }
+  .feature-section {
+    width: 100%;
+    padding: 5px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  .feature-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .feature-item {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+  }
+  .feature-item-img {
+    width: 44px;
+  }
+  .feature-item-img img {
+    width: 44px;
+    height: 38px;
+  }
+  .feature-title-container h3 {
+    font-size: 16px;
+  }
+  .additional-info {
+    font-size: 12px;
   }
 }
 
@@ -871,11 +921,38 @@ section {
     height: 31px;
     display: block;
   }
-  Понятно тебе ошибся .brand-title {
-    font-size: 20px; /* Размер шрифта 6 в HTML эквивалентен 24px в CSS */
+  .brand-title {
+    font-size: 20px;
   }
   .btn-FORM {
     display: block;
+  }
+  .navbar {
+    top: 84px;
+  }
+  .nav-item {
+    font-size: 11px;
+  }
+  .slider-container-img {
+    margin-top: 119px;
+  }
+  .feature-container {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .feature-item-img img {
+    width: 31px;
+    height: 22px;
+  }
+  .feature-title-container {
+    row-gap: 0px;
+  }
+  .feature-title-container h3 {
+    width: max-content;
+    font-size: 12px;
+  }
+  .additional-info {
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 500px) {
@@ -883,7 +960,6 @@ section {
     height: max-content;
   }
   .brand-title {
-    font-size: 20px;
     align-self: self-end;
   }
   .btn-FORM {
@@ -907,6 +983,7 @@ section {
   .cart img {
     width: 12px;
     height: 11px;
+    background: none;
   }
   .mobil-burger {
     display: block;
@@ -926,5 +1003,56 @@ section {
     width: 204px;
     height: 30px;
     font-size: 13px;
+  }
+  .nav-item {
+    display: none;
+  }
+  .slider-container-img {
+    margin-top: 64px;
+    height: max-content;
+  }
+  .slider {
+    height: max-content;
+  }
+  .imagenavigation {
+    height: 100%;
+  }
+  .prev-btn,
+  .next-btn {
+    width: 9px;
+    height: 10px;
+    font-size: 6px;
+  }
+  .feature-section {
+    padding: 0px 0px 0px 20px;
+    height: 53px;
+  }
+  .feature-container {
+    width: 100%;
+    justify-content: start;
+    column-gap: 12px;
+  }
+  .feature-item {
+    column-gap: 7px;
+  }
+  .feature-item-img {
+    width: 31px;
+  }
+  .feature-item-img img {
+    width: 23px;
+    height: 22px;
+  }
+  .feature-title-container {
+    row-gap: 0px;
+  }
+  .feature-title-container h3 {
+    width: max-content;
+    font-size: 7px;
+    line-height: initial;
+  }
+  .additional-info {
+    width: max-content;
+    font-size: 4px;
+    line-height: inherit;
   }
 }
