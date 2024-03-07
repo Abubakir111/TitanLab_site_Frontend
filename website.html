@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TitanLab</title>
     <link rel="stylesheet" href="./css/styles1.css" />
-    <!-- <link
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    /> -->
   </head>
   <body>
     <header>
@@ -93,16 +89,14 @@
       </div>
     </header>
     <!-- модалка проверка возраста -->
-    <div id="ageModal" class="modal" style="z-index: 3">
+    <div id="ageModal" class="modal">
       <div class="modal-content">
         <img
           class="image-content"
           src="./images/icons/logo_title.png"
           alt="logo"
         />
-        <p style="font-family: Arial Black">
-          Подтвердите что Вам больше 18 лет.
-        </p>
+        <p>Подтвердите что Вам больше 18 лет.</p>
         <div class="button-container">
           <button class="primary-button" onclick="confirmAge()">
             Мне больше 18 лет
@@ -111,13 +105,12 @@
             Мне меньше 18 лет
           </button>
         </div>
-        <div class="info-age" style="font-family: Arial Black">
-          <h1>
-            Сайт носит информационный характер и не рекламирует табачную
-            продукцию. Вся информация представлена в целях ознакомления,<br />
-            а не агитации или рекламирования товара.<br />
-          </h1>
-        </div>
+
+        <h1 class="info-age">
+          Сайт носит информационный характер и не рекламирует табачную
+          продукцию. Вся информация представлена в целях ознакомления, а не
+          агитации или рекламирования товара.
+        </h1>
       </div>
     </div>
 
