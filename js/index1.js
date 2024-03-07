@@ -146,29 +146,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const burgerMenu = document.querySelector(".burger-menu");
-  const navbar = document.querySelector(".navbar");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const burgerMenu = document.querySelector(".burger-menu");
+//   const navbar = document.querySelector(".navbar");
 
-  // Обработчик клика на бургер-меню
-  burgerMenu.addEventListener("click", function () {
-    navbar.classList.toggle("show-nav");
-  });
-});
+//   // Обработчик клика на бургер-меню
+//   burgerMenu.addEventListener("click", function () {
+//     navbar.classList.toggle("show-nav");
+//   });
+// });
 
-function toggleText(elementId) {
-  var element = document.getElementById(elementId);
-  if (element.style.display === "none") {
-    element.style.display = "block";
-    // Скрываем кнопку "Читать полностью"
-    var trigger = document.querySelector(".read-more-trigger");
-    trigger.style.display = "none";
-    // Можно добавить здесь другие действия при раскрытии текста
-  } else {
-    element.style.display = "none";
-    // Можно добавить здесь другие действия при скрытии текста
-  }
-}
+// function toggleText(elementId) {
+//   var element = document.getElementById(elementId);
+//   if (element.style.display === "none") {
+//     element.style.display = "block";
+//     // Скрываем кнопку "Читать полностью"
+//     var trigger = document.querySelector(".read-more-trigger");
+//     trigger.style.display = "none";
+//     // Можно добавить здесь другие действия при раскрытии текста
+//   } else {
+//     element.style.display = "none";
+//     // Можно добавить здесь другие действия при скрытии текста
+//   }
+// }
 
 function openProductDetails() {
   // Открывает новую страницу с подробной информацией о товаре
