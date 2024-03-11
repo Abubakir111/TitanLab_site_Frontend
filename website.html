@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TitanLab</title>
     <link rel="stylesheet" href="./css/styles1.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header>
@@ -169,7 +173,6 @@
       <a class="nav-item" href="#contact">Контакты</a>
       <div class="navbar_animation"></div>
     </nav>
-
     <div class="slider-container-img">
       <div class="slider" id="imagenavigation">
         <img
@@ -225,137 +228,68 @@
     </section>
     <section class="product-section" id="product">
       <h3 class="title-product">Электронные сигареты</h3>
-      <div class="nextslides-postion-container">
-        <button class="nextslides" onclick="moveSlide(1)">❯</button>
-        <div class="product-slider-container">
-          <div class="product-slider-wrapper">
-            <div class="product-slider">
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/produclt1.jpg"
-                    alt="Product 1 "
-                  />
-                  <p class="product-title">WAKA</p>
-                </div>
-                <button class="product-btn">Подробнеe</button>
+      <div class="swiper__silder_wrapp">
+        <!-- onclick="moveSlide(1)" -->
+        <button class="nextslides">❯</button>
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/product1.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ODENS</p>
               </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/porduct2.jpg"
-                    alt="product 2 "
-                  />
-                  <p class="product-title">PLONQ</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/porduct2.jpg"
+                  alt="product 2 "
+                />
+                <p class="product-title">ODENS</p>
               </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/porduct2.jpg"
-                    alt="Product 3 "
-                  />
-                  <p class="product-title">WAKA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+              <button class="product-btn">Подробнее</button>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/product1.jpg"
+                  alt="product 2 "
+                />
+                <p class="product-title">WAKA</p>
               </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/porduct2.jpg"
-                    alt="Product 4 "
-                  />
-                  <p class="product-title">WAKA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/porduct2.jpg"
+                  alt="product 2 "
+                />
+                <p class="product-title">ODENS</p>
               </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/porduct2.jpg"
-                    alt="Product 5 "
-                  />
-                  <p class="product-title">WAKA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
-              </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/porduct2.jpg"
-                    alt="Product 1 "
-                  />
-                  <p class="product-title">WAKA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="product-section product-section2">
-      <h2 class="title-product">Жевательный табак</h2>
-      <div class="nextslides-postion-container">
-        <button class="nextslides1" onclick="moveSlide(1)">❯</button>
-        <div class="product-slider-container">
-          <div class="product-slider-wrapper">
-            <div class="product-slider" id="product-slider-2">
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/odens.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ODENS</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
-              </div>
-
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/siberia.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">SIBERIA</p>
-                </div>
-                <button class="product-btn" onclick="openProductDetails()">
-                  Подробнее
-                </button>
-              </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/odens.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ODENS</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
-              </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/siberia.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">SIBERIA</p>
-                </div>
-                <button class="product-btn" onclick="openProductDetails()">
-                  Подробнее
-                </button>
+            <div class="swiper-slide">
+              <div>
+                <p>ODENS</p>
+                в наличий нет
               </div>
             </div>
           </div>
@@ -364,58 +298,70 @@
     </section>
 
     <section class="product-section product-section2">
-      <h2 class="title-product">IQOS</h2>
-      <div class="nextslides-postion-container">
-        <button class="nextslides2" onclick="moveSlide(1)">❯</button>
-        <div class="product-slider-container">
-          <div class="product-slider-wrapper">
-            <div class="product-slider" id="product-slider-3">
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/ilumma.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ILUMA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+      <h3 class="title-product">Жевательный табак</h3>
+      <div class="swiper__silder_wrapp">
+        <button class="nextslides2">❯</button>
+        <div class="swiper2">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/odens.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ODENS</p>
               </div>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/porduct2.jpg"
+                  alt="product 2 "
+                />
+                <p class="product-title">ODENS</p>
+              </div>
+              <button class="product-btn">Подробнее</button>
+            </div>
 
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/iluma_prime.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ILUMA PRIME</p>
-                </div>
-                <button class="product-btn" onclick="openProductDetails(1)">
-                  Подробнее
-                </button>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/siberia.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">SIBERIA</p>
               </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/ilumma.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ILUMA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+              <button class="product-btn" onclick="openProductDetails()">
+                Подробнее
+              </button>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/odens.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ODENS</p>
               </div>
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/iluma_prime.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ILUMA PRIME</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>ODENS</p>
+                в наличий нет
               </div>
             </div>
           </div>
@@ -424,22 +370,127 @@
     </section>
 
     <section class="product-section product-section2">
-      <h2 class="title-product">Стики</h2>
-      <div class="nextslides-postion-container">
-        <button class="nextslides3" onclick="moveSlide(1)">❯</button>
-        <div class="product-slider-container">
-          <div class="product-slider-wrapper">
-            <div class="product-slider" id="product-slider-4">
-              <div class="product-block">
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="./images/terea.jpg"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">ILUMA</p>
-                </div>
-                <button class="product-btn">Подробнее</button>
+      <h3 class="title-product">IQOS</h3>
+      <div class="swiper__silder_wrapp">
+        <button class="nextslides3">❯</button>
+        <div class="swiper3">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/ilumma.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ILUMA</p>
+              </div>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/iluma_prime.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ILUMA PRIME</p>
+              </div>
+              <button class="product-btn" onclick="openProductDetails(1)">
+                Подробнее
+              </button>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/ilumma.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ILUMA</p>
+              </div>
+              <button class="product-btn" onclick="openProductDetails()">
+                Подробнее
+              </button>
+            </div>
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/iluma_prime.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ILUMA PRIME</p>
+              </div>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>ODENS</p>
+                в наличий нет
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section product-section2">
+      <h3 class="title-product">Стики</h3>
+      <div class="swiper__silder_wrapp">
+        <button class="nextslides4">❯</button>
+        <div class="swiper4">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="product-block-img-container">
+                <img
+                  class="product-block-img"
+                  src="./images/terea.jpg"
+                  alt="Product 1"
+                />
+                <p class="product-title">ILUMA</p>
+              </div>
+              <button class="product-btn">Подробнее</button>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>WAKA</p>
+                в наличий нет
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <p>ODENS</p>
+                в наличий нет
               </div>
             </div>
           </div>
@@ -621,7 +672,7 @@
         />
       </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/index1.js"></script>
     <!-- <script src="./js/index2.js"></script> -->
   </body>

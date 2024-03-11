@@ -1,3 +1,112 @@
+const swiper1 = new Swiper(".swiper", {
+  slidesPerView: 4,
+  spaceBetween: 35,
+  direction: "horizontal",
+  loop: true,
+  navigation: {
+    nextEl: ".nextslides",
+  },
+  breakpoints: {
+    350: {
+      slidesPerView: 2,
+      spaceBetween: 6,
+    },
+    648: {
+      slidesPerView: 3,
+      spaceBetween: 6,
+    },
+    780: {
+      slidesPerView: 3,
+      spaceBetween: 35,
+    },
+    1000: {
+      slidesPerView: 4,
+      spaceBetween: 35,
+    },
+  },
+});
+const swiper2 = new Swiper(".swiper2", {
+  slidesPerView: 4,
+  spaceBetween: 35,
+  direction: "horizontal",
+  loop: true,
+  navigation: {
+    nextEl: ".nextslides2",
+  },
+  breakpoints: {
+    350: {
+      slidesPerView: 2,
+      spaceBetween: 6,
+    },
+    648: {
+      slidesPerView: 3,
+      spaceBetween: 6,
+    },
+    780: {
+      slidesPerView: 3,
+      spaceBetween: 35,
+    },
+    1000: {
+      slidesPerView: 4,
+      spaceBetween: 35,
+    },
+  },
+});
+const swiper3 = new Swiper(".swiper3", {
+  slidesPerView: 4,
+  spaceBetween: 35,
+  direction: "horizontal",
+  loop: true,
+  navigation: {
+    nextEl: ".nextslides3",
+  },
+  breakpoints: {
+    350: {
+      slidesPerView: 2,
+      spaceBetween: 6,
+    },
+    648: {
+      slidesPerView: 3,
+      spaceBetween: 6,
+    },
+    780: {
+      slidesPerView: 3,
+      spaceBetween: 35,
+    },
+    1000: {
+      slidesPerView: 4,
+      spaceBetween: 35,
+    },
+  },
+});
+const swiper4 = new Swiper(".swiper4", {
+  slidesPerView: 4,
+  spaceBetween: 35,
+  direction: "horizontal",
+  loop: true,
+  navigation: {
+    nextEl: ".nextslides4",
+  },
+  breakpoints: {
+    350: {
+      slidesPerView: 2,
+      spaceBetween: 6,
+    },
+    648: {
+      slidesPerView: 3,
+      spaceBetween: 6,
+    },
+    780: {
+      slidesPerView: 3,
+      spaceBetween: 35,
+    },
+    1000: {
+      slidesPerView: 4,
+      spaceBetween: 35,
+    },
+  },
+});
+
 document.addEventListener("DOMContentLoaded ", function () {
   var downloadTrigger = document.getElementById("downloadTrigger");
 
