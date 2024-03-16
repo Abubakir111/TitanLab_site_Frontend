@@ -3,10 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat-Regular.woff"), format("woff");
-}
 .productMobal_add_price-container {
   display: none;
 }

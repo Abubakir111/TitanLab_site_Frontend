@@ -5,19 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TitanLab</title>
     <link rel="stylesheet" href="./css/styles1.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
   </head>
   <body>
     <header>
       <div class="header-content" id="header">
-        <img
-          src="./images/icons/logo.png"
-          alt="Your Image"
-          class="header-image"
-        />
+        <img src="./images/icons/logo.png" alt="Your Image" class="header-image" />
         <!--ap23pa.png  -->
         <div class="header-mobil-container">
           <img class="header-mobil-logo" src="./images/icons/logo.png" alt="" />
@@ -26,19 +20,20 @@
         <div class="header-actions">
           <button class="cart">
             <!--Vector.png -->
+            <!-- onmouseover="showCart()" -->
+            <!-- onmouseout="hideCart()" -->
             <img
               src="./images/icons/basket.png"
               alt="Корзина"
               id="cart-image"
               class="cart-image"
-              onmouseover="showCart()"
-              onmouseout="hideCart()"
+              onclick="openBasker()"
             />
             <div class="cart-count" id="cart">0</div>
           </button>
           <!-- модалка корзинки -->
-
-          <div class="basketModal">
+          <div class="basketModal" id="basketModal">
+            <img src="./images/icons/cross.png" alt="" class="clossBasket" id="clossBasket" onclick="closeBasker()" />
             <div class="basketModal-container">
               <div class="basketModal-product-block-wrapp">
                 <div class="basketModal-product-block">
@@ -49,11 +44,7 @@
                       <p>5 коробок</p>
                     </div>
                   </div>
-                  <img
-                    src="./images/icons/cross.png"
-                    alt="delet"
-                    class="basketModal-delet-product"
-                  />
+                  <img src="./images/icons/cross.png" alt="delet" class="basketModal-delet-product" />
                 </div>
 
                 <div class="basketModal-product-block">
@@ -64,11 +55,7 @@
                       <p>5 коробок</p>
                     </div>
                   </div>
-                  <img
-                    src="./images/icons/cross.png"
-                    alt="delet"
-                    class="basketModal-delet-product"
-                  />
+                  <img src="./images/icons/cross.png" alt="delet" class="basketModal-delet-product" />
                 </div>
               </div>
 
@@ -77,49 +64,57 @@
                   <div>Итог:</div>
                   <div>999 <span>рублей.</span></div>
                 </div>
-                <button class="basketModla-btn" type="button">
-                  Оставить заявку
-                </button>
+                <button class="basketModla-btn" type="button" onclick="openForm()">Оставить заявку</button>
               </div>
             </div>
           </div>
           <div class="btn-Form-container">
-            <button class="btn-FORM" onclick="openForm()">
-              Оставить заявку
-            </button>
+            <div class="mobil-burger-modal" id="mobil-burger-modal">
+              <div class="mobil-burger-modal-inner">
+                <img
+                  src="./images/icons/cross.png"
+                  alt="cross"
+                  class="mobil-burger-modal-cross"
+                  onclick="closeMobalBurger()"
+                />
+                <nav class="burger-modal-nav">
+                  <ul class="burger-modal-ul">
+                    <li class="burger-modal-li"><a href="#imagenavigation">Главная</a></li>
+                    <li class="burger-modal-li"><a href="#product">Каталог</a></li>
+                    <li class="burger-modal-li"><a href="#reviews">Отзывы</a></li>
+                    <li class="burger-modal-li"><a href="#footer-contact">Контакты</a></li>
+                    <li class="burger-modal-li"><a href="#about-company">О компании</a></li>
+                  </ul>
+                </nav>
+                <div class="burger-modal-btn-container">
+                  <buttton class="burger-modal-btn" onclick="openForm()">Оставить заявку</buttton>
+                </div>
+              </div>
+            </div>
+            <button class="btn-FORM" id="openApplicationForm" onclick="openForm()">Оставить заявку</button>
             <img
               class="mobil-burger"
+              id="mobil-burger"
               src="./images/icons/menu_bar.png"
               alt=""
+              onclick="openMobalBurger()"
             />
           </div>
           <div id="myForm" class="form-popup" style="z-index: 500">
             <div>
               <form action="submit.php" class="form-container" method="POST">
-                <button class="form-popup-crose-btn">
+                <button class="form-popup-crose-btn" onclick="closeForm()">
                   <img
-                    class="crose"
+                    class="form-popup-crose-img"
                     src="./images/icons/cross.png"
                     alt="cross"
-                    onclick="closeForm()"
+                    id="closeTheApplicationForm"
                   />
                 </button>
                 <div class="form-content">
                   <h3 class="form-container-h3">Оставить заявку</h3>
-                  <input
-                    type="text"
-                    placeholder="Ваше имя*"
-                    name="name"
-                    required
-                    class="form-popup-input"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Номер телефона*"
-                    name="phone"
-                    required
-                    class="form-popup-input"
-                  />
+                  <input type="text" placeholder="Ваше имя*" name="name" required class="form-popup-input" />
+                  <input type="text" placeholder="Номер телефона*" name="phone" required class="form-popup-input" />
                   <input
                     type="text"
                     placeholder="Телеграм для связи*"
@@ -128,8 +123,7 @@
                     class="form-popup-input"
                   />
                   <p class="form-popup-massage">
-                    *Нажимая на кнопку, Вы соглашаетесь на обработку
-                    персональных данных.
+                    *Нажимая на кнопку, Вы соглашаетесь на обработку персональных данных.
                   </p>
                   <button type="submit" class="button-Form">Отправить</button>
                 </div>
@@ -142,25 +136,16 @@
     <!-- модалка проверка возраста -->
     <div id="ageModal" class="modal">
       <div class="modal-content">
-        <img
-          class="image-content"
-          src="./images/icons/logo_title.png"
-          alt="logo"
-        />
+        <img class="image-content" src="./images/icons/logo_title.png" alt="logo" />
         <p>Подтвердите что Вам больше 18 лет.</p>
         <div class="button-container">
-          <button class="primary-button" onclick="confirmAge()">
-            Мне больше 18 лет
-          </button>
-          <button class="secondary-button" onclick="rejectAge()">
-            Мне меньше 18 лет
-          </button>
+          <button class="primary-button" onclick="confirmAge()">Мне больше 18 лет</button>
+          <button class="secondary-button" onclick="rejectAge()">Мне меньше 18 лет</button>
         </div>
 
         <h1 class="info-age">
-          Сайт носит информационный характер и не рекламирует табачную
-          продукцию. Вся информация представлена в целях ознакомления, а не
-          агитации или рекламирования товара.
+          Сайт носит информационный характер и не рекламирует табачную продукцию. Вся информация представлена в целях
+          ознакомления, а не агитации или рекламирования товара.
         </h1>
       </div>
     </div>
@@ -173,488 +158,301 @@
       <a class="nav-item" href="#contact">Контакты</a>
       <div class="navbar_animation"></div>
     </nav>
-    <div class="slider-container-img">
-      <div class="slider" id="imagenavigation">
-        <img
-          class="imagenavigation"
-          src="./images/slider_baner1.jpg"
-          alt="ElfBar"
-        />
-        <img
-          class="imagenavigation"
-          src="./images/slider_baner1.jpg"
-          alt="Image 2"
-        />
-        <img
-          class="imagenavigation"
-          src="./images/slider_baner1.jpg"
-          alt="Image 3"
-        />
+    <div class="main_unit-container" id="main_unit-container">
+      <div class="slider-container-img">
+        <div class="slider" id="imagenavigation">
+          <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="ElfBar" />
+          <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="Image 2" />
+          <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="Image 3" />
+        </div>
+        <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
       </div>
-      <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-      <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+      <section class="feature-section">
+        <div class="feature-container">
+          <div class="feature-item">
+            <div class="feature-item-img">
+              <img src="./images/delivery.png" alt="ElfBar" />
+            </div>
+            <div class="feature-title-container">
+              <h3>Доставка</h3>
+              <div class="additional-info">Дополнительная информация</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-item-img">
+              <img src="./images/check_mark.png" alt="ElfBar" />
+            </div>
+            <div class="feature-title-container">
+              <h3>Гарантия качества</h3>
+              <div class="additional-info">Дополнительная информация</div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-item-img">
+              <img src="./images/discount.png" alt="ElfBar" />
+            </div>
+            <div class="feature-title-container">
+              <h3>Скидка 10%</h3>
+              <div class="additional-info">Дополнительна информация</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="product-section" id="product">
+        <h3 class="title-product">Электронные сигареты</h3>
+        <div class="swiper__silder_wrapp">
+          <!-- onclick="moveSlide(1)" -->
+          <button class="nextslides">❯</button>
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="eSigs"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section product-section2">
+        <h3 class="title-product">Жевательный табак</h3>
+        <div class="swiper__silder_wrapp">
+          <button class="nextslides2">❯</button>
+          <div class="swiper2">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="chewingGum"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section product-section2">
+        <h3 class="title-product">IQOS</h3>
+        <div class="swiper__silder_wrapp">
+          <button class="nextslides3">❯</button>
+          <div class="swiper3">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="iqos"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section product-section2">
+        <h3 class="title-product">Стики</h3>
+        <div class="swiper__silder_wrapp">
+          <button class="nextslides4">❯</button>
+          <div class="swiper4">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="sticks"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-company-section" id="about-company">
+        <h2 class="section-title" id="about-company">О компании</h2>
+        <!-- <div class="section-content"> -->
+        <div class="info-text">
+          <p>
+            Titan Lab - это компания занимающаяся оптовыми и розничными продажами с 2018 года. На нашем счету уже более
+            1000 успешных сделок и 99% положительных отзывов от покупателей.
+          </p>
+          <p>
+            Наша команда тщательно подходит к выбору товара. Именно поэтому мы работаем напрямую с производителями, что
+            дает гарантию качества нашей продукции.
+          </p>
+          <p>
+            В нашем ассортименте более 500 позиций различных табачных изделий и электронных девайсов: от всеми известных
+            до эксклюзивных брендов. Вся лучшая табачная продукция и девайсы для курения собраны в одном месте, чтобы
+            сделать ваш выбор проще и доступнее.
+          </p>
+          <p>
+            Накопленные знания помогают уверенно подбирать для вас продукцию по вкусу и крепости, под настроение и
+            желания.
+          </p>
+        </div>
+      </section>
+      <section class="reviews" id="reviews">
+        <h1 class="section-title">Отзывы</h1>
+        <div class="slider-container-wrapp">
+          <div class="next" id="review__next">&#10095;</div>
+          <div class="prev" id="review__prev">&#10094;</div>
+
+          <div class="slider-container">
+            <div class="swiper-wrapper swiper_wrapper__reviews">
+              <div class="swiper-slide swiper_slide_review">
+                <div class="review">
+                  <div class="review-avatar-container">
+                    <img class="avatar" src="./images/avatar1.png" alt="Аватар 1 " />
+                    <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                    <p class="nickname">ДЫМДымский</p>
+                  </div>
+                  <div class="text-container">
+                    <!-- <div class="text-more-btn">подробнее</div> -->
+                    <div class="text">
+                      Заказала себе недавно электронные сигареты WAKA и осталась очень довольна!<br />
+                      Во-первых, устройство отличается крутым дизайном и удобной формой, во-вторых, были на связи в
+                      течении всей цепочки от оплаты счета до сверения кодов. Рекомендую всем, кто переходит на работу в
+                      белую. Доставили через 7 дней, как и говорили. Доставкой довольна. Во-первых, устройство
+                      отличается крутым дизайном и удобной формой, во-вторых, были на связи в течении всей цепочки от
+                      оплаты счета до сверения кодов. Рекомендую всем, кто переходит на работу в белую. Доставили через
+                      7 дней, как и говорили. Доставкой довольна.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper_slide_review">
+                <div class="review">
+                  <div class="review-avatar-container">
+                    <img class="avatar" src="./images/avatar2.png" alt="Аватар 1 " />
+                    <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                    <p class="nickname">Царь Пар</p>
+                  </div>
+                  <div class="text-container">
+                    <!-- <div class="text-more-btn">подробнее</div> -->
+                    <div class="text">
+                      Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него бросают курить.
+                      <br />
+                      Много разных позиций по по вкусу, брендам и граммам. Лучше всего у нас продаются позиции по 16
+                      грамм.Самый популярный на данный момент это оденс колд драй 16 мг никотина, хорошее качество
+                      продукта и хорошая маржинальность для акцизных товаров.Поставщику спасибо за оперативность, желаем
+                      дальнейшего процветания!
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide swiper_slide_review">
+                <div class="review">
+                  <div class="review-avatar-container">
+                    <img class="avatar" src="./images/avatar3.png" alt="Аватар 1 " />
+                    <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                    <p class="nickname">Денис Погодин</p>
+                  </div>
+                  <div class="text-container">
+                    <!-- <div class="text-more-btn">подробнее</div> -->
+                    <div class="text">
+                      Курю уже более 2-х лет, срок не большой, очень хочу бросить. Думаю, что данный продукт достаточно
+                      эффективен как способ просить курить. В основном зависимость возникает не от никотина, а от
+                      привычки что-либо потянуть. Я не думаю, что электронная сигарета может помочь лучше, чем
+                      жевательный табак, так как она не избавляет от привычки тянуть что-то. Жевательный табак содержит
+                      достаточно никотина для того
+
+                      <br /><br />Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него
+                      бросают курить.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="slider-container">
+          <div class="slides">
+            <div class="slide">
+              <div class="review">
+                <div class="review-avatar-container">
+                  <img class="avatar" src="./images/avatar1.png" alt="Аватар 1 " />
+                  <p class="nickname">ДЫМДымский</p>
+                  <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                </div>
+                <div class="text-container">
+                  <div class="text-more-btn">подробнее</div>
+                  <div class="text">
+                    Заказала себе недавно электронные сигареты WAKA и осталась очень довольна!<br />
+                    Во-первых, устройство отличается крутым дизайном и удобной формой, во-вторых, были на связи в
+                    течении всей цепочки от оплаты счета до сверения кодов. Рекомендую всем, кто переходит на работу в
+                    белую. Доставили через 7 дней, как и говорили. Доставкой довольна. Во-первых, устройство отличается
+                    крутым дизайном и удобной формой, во-вторых, были на связи в течении всей цепочки от оплаты счета до
+                    сверения кодов. Рекомендую всем, кто переходит на работу в белую. Доставили через 7 дней, как и
+                    говорили. Доставкой довольна.
+                  </div>
+                </div>
+              </div>
+              <div class="review">
+                <div class="review-avatar-container">
+                  <img class="avatar" src="./images/avatar2.png" alt="Аватар 1 " />
+                  <p class="nickname">Царь Пар</p>
+                  <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                </div>
+                <div class="text-container">
+                  <div class="text-more-btn">подробнее</div>
+                  <div class="text">
+                    Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него бросают курить.
+                    <br />
+                    Много разных позиций по по вкусу, брендам и граммам. Лучше всего у нас продаются позиции по 16
+                    грамм.Самый популярный на данный момент это оденс колд драй 16 мг никотина, хорошее качество
+                    продукта и хорошая маржинальность для акцизных товаров.Поставщику спасибо за оперативность, желаем
+                    дальнейшего процветания!
+                  </div>
+                </div>
+              </div>
+              <div class="review">
+                <div class="review-avatar-container">
+                  <img class="avatar" src="./images/avatar3.png" alt="Аватар 1 " />
+                  <p class="nickname">Денис Погодин</p>
+                  <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                </div>
+                <div class="text-container">
+                  <div class="text-more-btn">подробнее</div>
+                  <div class="text">
+                    Курю уже более 2-х лет, срок не большой, очень хочу бросить. Думаю, что данный продукт достаточно
+                    эффективен как способ просить курить. В основном зависимость возникает не от никотина, а от привычки
+                    что-либо потянуть. Я не думаю, что электронная сигарета может помочь лучше, чем жевательный табак,
+                    так как она не избавляет от привычки тянуть что-то. Жевательный табак содержит достаточно никотина
+                    для того
+
+                    <br /><br />Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него бросают
+                    курить.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prev" onclick="prevSlide() ">&#10094;</div>
+          <div class="next" onclick="nextSlide() ">&#10095;</div>
+        </div> -->
+      </section>
+      <section class="section-documents" id="section-documents">
+        <h1 class="title-document">Документы и сертификаты</h1>
+        <div class="documnets-container">
+          <div class="column" id="column1 ">
+            <a class="document" href="Новый-документ.pdf " download>
+              <img src="./images/icons/file-icon.png" alt="file_icon" />
+              <p>Свидетельство Роспатента о торговой марке</p>
+            </a>
+
+            <a class="document" href="Новый-документ.pdf " download>
+              <img src="./images/icons/file-icon.png" alt="file_icon" />
+              <p>Декларация о соответствии УПД с номерами</p>
+            </a>
+
+            <a class="document" href="Новый-документ.pdf " download>
+              <img src="./images/icons/file-icon.png" alt="file_icon" />
+              <p>Честный знак</p>
+            </a>
+          </div>
+
+          <div class="column" id="column2 ">
+            <a class="document" href="Новый-документ.pdf " download>
+              <img src="./images/icons/file-icon.png" alt="file_icon" />
+              <p>Декларация ЕАС</p>
+            </a>
+
+            <a class="document" href="Новый-документ.pdf " download>
+              <img src="./images/icons/file-icon.png" alt="file_icon" />
+              <p>Сертификат Качества</p>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-    <section class="feature-section">
-      <div class="feature-container">
-        <div class="feature-item">
-          <div class="feature-item-img">
-            <img src="./images/delivery.png" alt="ElfBar" />
-          </div>
-          <div class="feature-title-container">
-            <h3>Доставка</h3>
-            <div class="additional-info">Дополнительная информация</div>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-item-img">
-            <img src="./images/check_mark.png" alt="ElfBar" />
-          </div>
-          <div class="feature-title-container">
-            <h3>Гарантия качества</h3>
-            <div class="additional-info">Дополнительная информация</div>
-          </div>
-        </div>
+    <div class="product__main_wrapp" id="product__main_wrapp">
+      <div class="product__main_heder_fon"></div>
+      <div class="product__main" id="product__main"></div>
+    </div>
 
-        <div class="feature-item">
-          <div class="feature-item-img">
-            <img src="./images/discount.png" alt="ElfBar" />
-          </div>
-          <div class="feature-title-container">
-            <h3>Скидка 10%</h3>
-            <div class="additional-info">Дополнительна информация</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="product-section" id="product">
-      <h3 class="title-product">Электронные сигареты</h3>
-      <div class="swiper__silder_wrapp">
-        <!-- onclick="moveSlide(1)" -->
-        <button class="nextslides">❯</button>
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/product1.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ODENS</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/porduct2.jpg"
-                  alt="product 2 "
-                />
-                <p class="product-title">ODENS</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/product1.jpg"
-                  alt="product 2 "
-                />
-                <p class="product-title">WAKA</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/porduct2.jpg"
-                  alt="product 2 "
-                />
-                <p class="product-title">ODENS</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>ODENS</p>
-                в наличий нет
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="product-section product-section2">
-      <h3 class="title-product">Жевательный табак</h3>
-      <div class="swiper__silder_wrapp">
-        <button class="nextslides2">❯</button>
-        <div class="swiper2">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/odens.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ODENS</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/porduct2.jpg"
-                  alt="product 2 "
-                />
-                <p class="product-title">ODENS</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/siberia.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">SIBERIA</p>
-              </div>
-              <button class="product-btn" onclick="openProductDetails()">
-                Подробнее
-              </button>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/odens.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ODENS</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>ODENS</p>
-                в наличий нет
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="product-section product-section2">
-      <h3 class="title-product">IQOS</h3>
-      <div class="swiper__silder_wrapp">
-        <button class="nextslides3">❯</button>
-        <div class="swiper3">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/ilumma.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ILUMA</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/iluma_prime.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ILUMA PRIME</p>
-              </div>
-              <button class="product-btn" onclick="openProductDetails(1)">
-                Подробнее
-              </button>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/ilumma.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ILUMA</p>
-              </div>
-              <button class="product-btn" onclick="openProductDetails()">
-                Подробнее
-              </button>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/iluma_prime.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ILUMA PRIME</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>ODENS</p>
-                в наличий нет
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="product-section product-section2">
-      <h3 class="title-product">Стики</h3>
-      <div class="swiper__silder_wrapp">
-        <button class="nextslides4">❯</button>
-        <div class="swiper4">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-              <div class="product-block-img-container">
-                <img
-                  class="product-block-img"
-                  src="./images/terea.jpg"
-                  alt="Product 1"
-                />
-                <p class="product-title">ILUMA</p>
-              </div>
-              <button class="product-btn">Подробнее</button>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>WAKA</p>
-                в наличий нет
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <p>ODENS</p>
-                в наличий нет
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-company-section">
-      <h2 class="section-title" id="about-company">О компании</h2>
-      <!-- <div class="section-content"> -->
-      <div class="info-text">
-        <p>
-          Titan Lab - это компания занимающаяся оптовыми и розничными продажами
-          с 2018 года. На нашем счету уже более 1000 успешных сделок и 99%
-          положительных отзывов от покупателей.
-        </p>
-        <p>
-          Наша команда тщательно подходит к выбору товара. Именно поэтому мы
-          работаем напрямую с производителями, что дает гарантию качества нашей
-          продукции.
-        </p>
-        <p>
-          В нашем ассортименте более 500 позиций различных табачных изделий и
-          электронных девайсов: от всеми известных до эксклюзивных брендов. Вся
-          лучшая табачная продукция и девайсы для курения собраны в одном месте,
-          чтобы сделать ваш выбор проще и доступнее.
-        </p>
-        <p>
-          Накопленные знания помогают уверенно подбирать для вас продукцию по
-          вкусу и крепости, под настроение и желания.
-        </p>
-      </div>
-    </section>
-    <section class="reviews" id="reviews">
-      <h1 class="section-title">Отзывы</h1>
-      <div class="slider-container">
-        <div class="slides">
-          <div class="slide">
-            <div class="review">
-              <div class="review-avatar-container">
-                <img
-                  class="avatar"
-                  src="./images/avatar1.png"
-                  alt="Аватар 1 "
-                />
-                <p class="nickname">ДЫМДымский</p>
-                <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-              </div>
-              <div class="text-container">
-                <div class="text-more-btn">подробнее</div>
-                <div class="text">
-                  Заказала себе недавно электронные сигареты WAKA и осталась
-                  очень довольна!<br />
-                  Во-первых, устройство отличается крутым дизайном и удобной
-                  формой, во-вторых, были на связи в течении всей цепочки от
-                  оплаты счета до сверения кодов. Рекомендую всем, кто переходит
-                  на работу в белую. Доставили через 7 дней, как и говорили.
-                  Доставкой довольна. Во-первых, устройство отличается крутым
-                  дизайном и удобной формой, во-вторых, были на связи в течении
-                  всей цепочки от оплаты счета до сверения кодов. Рекомендую
-                  всем, кто переходит на работу в белую. Доставили через 7 дней,
-                  как и говорили. Доставкой довольна.
-                </div>
-              </div>
-            </div>
-            <div class="review">
-              <div class="review-avatar-container">
-                <img
-                  class="avatar"
-                  src="./images/avatar2.png"
-                  alt="Аватар 1 "
-                />
-                <p class="nickname">Царь Пар</p>
-                <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-              </div>
-              <div class="text-container">
-                <div class="text-more-btn">подробнее</div>
-                <div class="text">
-                  Интересная вещь, для тех кто устал от сигарет и электронок
-                  многие с помощью него бросают курить.
-                  <br />
-                  Много разных позиций по по вкусу, брендам и граммам. Лучше
-                  всего у нас продаются позиции по 16 грамм.Самый популярный на
-                  данный момент это оденс колд драй 16 мг никотина, хорошее
-                  качество продукта и хорошая маржинальность для акцизных
-                  товаров.Поставщику спасибо за оперативность, желаем
-                  дальнейшего процветания!
-                </div>
-              </div>
-            </div>
-            <div class="review">
-              <div class="review-avatar-container">
-                <img
-                  class="avatar"
-                  src="./images/avatar3.png"
-                  alt="Аватар 1 "
-                />
-                <p class="nickname">Денис Погодин</p>
-                <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-              </div>
-              <div class="text-container">
-                <div class="text-more-btn">подробнее</div>
-                <div class="text">
-                  Курю уже более 2-х лет, срок не большой, очень хочу бросить.
-                  Думаю, что данный продукт достаточно эффективен как способ
-                  просить курить. В основном зависимость возникает не от
-                  никотина, а от привычки что-либо потянуть. Я не думаю, что
-                  электронная сигарета может помочь лучше, чем жевательный
-                  табак, так как она не избавляет от привычки тянуть что-то.
-                  Жевательный табак содержит достаточно никотина для того
-
-                  <br /><br />Интересная вещь, для тех кто устал от сигарет и
-                  электронок многие с помощью него бросают курить.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="prev" onclick="prevSlide() ">&#10094;</div>
-        <div class="next" onclick="nextSlide() ">&#10095;</div>
-      </div>
-    </section>
-    <section class="section-documents">
-      <h1 class="title-document">Документы и сертификаты</h1>
-      <div class="documnets-container">
-        <div class="column" id="column1 ">
-          <a class="document" href="Новый-документ.pdf " download>
-            <img src="./images/icons/file-icon.png" alt="file_icon" />
-            <p>Свидетельство Роспатента о торговой марке</p>
-          </a>
-
-          <a class="document" href="Новый-документ.pdf " download>
-            <img src="./images/icons/file-icon.png" alt="file_icon" />
-            <p>Декларация о соответствии УПД с номерами</p>
-          </a>
-
-          <a class="document" href="Новый-документ.pdf " download>
-            <img src="./images/icons/file-icon.png" alt="file_icon" />
-            <p>Честный знак</p>
-          </a>
-        </div>
-
-        <div class="column" id="column2 ">
-          <a class="document" href="Новый-документ.pdf " download>
-            <img src="./images/icons/file-icon.png" alt="file_icon" />
-            <p>Декларация ЕАС</p>
-          </a>
-
-          <a class="document" href="Новый-документ.pdf " download>
-            <img src="./images/icons/file-icon.png" alt="file_icon" />
-            <p>Сертификат Качества</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
+    <footer class="footer" id="footer-contact">
       <div class="footer-container">
         <div class="footer-contact-info" id="contact">
           <h3>Контактная информация</h3>
           <div class="social-icons">
-            <a href="https://vk.com/natrixd " target="_blank "
-              ><img src="./images/icons/vk.png" alt="VK "
-            /></a>
+            <a href="https://vk.com/natrixd " target="_blank "><img src="./images/icons/vk.png" alt="VK " /></a>
             <a href="https://web.telegram.org/k/ " target="_blank "
               ><img src="./images/icons/telegram.png" alt="Telegram "
             /></a>
@@ -665,15 +463,10 @@
             /></a>
           </div>
         </div>
-        <img
-          src="./images/icons/logo_title.png"
-          alt="logo"
-          class="TITANLOGOAPP"
-        />
+        <img src="./images/icons/logo_title.png" alt="logo" class="TITANLOGOAPP" />
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/index1.js"></script>
-    <!-- <script src="./js/index2.js"></script> -->
   </body>
 </html>
