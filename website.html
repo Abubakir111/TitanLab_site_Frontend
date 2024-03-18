@@ -34,39 +34,7 @@
           <!-- модалка корзинки -->
           <div class="basketModal" id="basketModal">
             <img src="./images/icons/cross.png" alt="" class="clossBasket" id="clossBasket" onclick="closeBasker()" />
-            <div class="basketModal-container">
-              <div class="basketModal-product-block-wrapp">
-                <div class="basketModal-product-block">
-                  <div class="basketModal-img-container">
-                    <img src="./images/siberia.jpg" alt="saibery" />
-                    <div class="basketModal-title-container">
-                      <h3>SIBERIA 13гр</h3>
-                      <p>5 коробок</p>
-                    </div>
-                  </div>
-                  <img src="./images/icons/cross.png" alt="delet" class="basketModal-delet-product" />
-                </div>
-
-                <div class="basketModal-product-block">
-                  <div class="basketModal-img-container">
-                    <img src="./images/siberia.jpg" alt="saibery" />
-                    <div class="basketModal-title-container">
-                      <h3>SIBERIA 13гр</h3>
-                      <p>5 коробок</p>
-                    </div>
-                  </div>
-                  <img src="./images/icons/cross.png" alt="delet" class="basketModal-delet-product" />
-                </div>
-              </div>
-
-              <div class="basketModal-total-amount">
-                <div class="basketModal-total-container">
-                  <div>Итог:</div>
-                  <div>999 <span>рублей.</span></div>
-                </div>
-                <button class="basketModla-btn" type="button" onclick="openForm()">Оставить заявку</button>
-              </div>
-            </div>
+            <div class="basketModal-container" id="basketModal-container"></div>
           </div>
           <div class="btn-Form-container">
             <div class="mobil-burger-modal" id="mobil-burger-modal">
@@ -296,6 +264,7 @@
                     </div>
                   </div>
                 </div>
+                <input class="product__options" type="text" value="1" />
               </div>
               <div class="swiper-slide swiper_slide_review">
                 <div class="review">
@@ -446,7 +415,6 @@
       <div class="product__main_heder_fon"></div>
       <div class="product__main" id="product__main"></div>
     </div>
-
     <footer class="footer" id="footer-contact">
       <div class="footer-container">
         <div class="footer-contact-info" id="contact">

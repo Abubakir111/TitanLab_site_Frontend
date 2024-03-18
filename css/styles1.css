@@ -132,14 +132,15 @@ header {
   border-bottom: 1px solid rgb(179, 179, 179);
   display: flex;
   flex-direction: column;
-  row-gap: 27px;
+  row-gap: 15px;
 }
 .basketModal-product-block {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  /* border: 1px solid springgreen; */
+  border: 1px solid #cad4cf;
+  border-radius: 11px;
+  padding: 5px 5px 0px 0px;
 }
 .basketModal-img-container {
   display: flex;
@@ -153,6 +154,9 @@ header {
 .basketModal-title-container {
   display: flex;
   flex-direction: column;
+}
+.basket__title_view {
+  font-size: 13px;
 }
 .basketModal-delet-product {
   width: 16px;
@@ -1158,6 +1162,9 @@ header {
   outline: none;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 4px;
+}
+.product_input {
+  border: none;
 }
 .product__description_container {
   text-align: justify;
