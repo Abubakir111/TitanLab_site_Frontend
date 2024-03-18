@@ -14,7 +14,7 @@ else basketCount.textContent = JSON.parse(localStorage.getItem('productData')).l
 
 const fetchData = async () => {
   try {
-    const response = await fetch('../dataProduct/dataProduct.json')
+    const response = await fetch('./dataProduct/dataProduct.json')
     const { eSigs, chewingGum, iqos, sticks } = await response.json()
     const eSigsBlock = document.querySelector('#eSigs')
     const chewingGumBlock = document.querySelector('#chewingGum')
@@ -213,10 +213,6 @@ const openBasker = () => {
   basketModl.style.display = 'block'
   if (basketModl.style.display == 'block') mobilBurgerModal.style.display = 'none'
   const basketProducts = JSON.parse(localStorage.getItem('productData'))
-  // let summ = 0
-  // basketProducts.forEach((count) => {
-  //   count.quantity > 1 ? (summ += count.price * count.quantity) : (summ += count.price)
-  // })
   basketProductHtml(basketModlContent, basketProducts)
 }
 const closeBasker = () => (basketModl.style.display = 'none')
