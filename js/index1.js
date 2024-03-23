@@ -8,9 +8,21 @@ const productMainWrapp = document.getElementById('product__main_wrapp')
 const navItem = document.querySelectorAll('.nav-item')
 const productMain = document.getElementById('product__main')
 const productAddBasketBtn = document.getElementById('product__add-basket_btn')
+const reviewBlockBtns = document.querySelectorAll('.review__more_btn')
 
 if (!localStorage.getItem('productData')) localStorage.setItem('productData', JSON.stringify([]))
 else basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length
+
+const swiperBanner = new Swiper('.swiper_baner', {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  direction: 'horizontal',
+  loop: false,
+  navigation: {
+    nextEl: '#nextslide_baner',
+    prevEl: '#prevslide_baner'
+  }
+})
 
 const fetchData = async () => {
   try {
@@ -22,18 +34,33 @@ const fetchData = async () => {
     const sticksBlock = document.querySelector('#sticks')
     const HTMLTemplate = (idElement, data) => {
       for (let product of data) {
-        idElement.innerHTML += ` <div class="swiper-slide" >
-                <div class="product-block-img-container">
-                  <img
-                    class="product-block-img"
-                    src="${product.img}"
-                    alt="Product 1"
-                  />
-                  <p class="product-title">${product.title}</p>
-                </div>
-                 <button class="product-btn"  onclick ="openProductDetails('${product.id}','${product.img}','${product.title}','${product.moreDetails}','${product.price}','${product.productOptionImage}','${product.typeOfProduct}')">Подробнее</button>
-                </div> `
+        idElement.innerHTML += ` 
+      <div class="swiper-slide">
+        <div class="product-contaianer-wrapp">
+          <div class="product-contaianer">
+            <div class="product-block">
+              <div class="product-block-img-container">
+                <img class="product-block-img" src="${product.img}" alt="Product 1" />
+                <p class="product-title">${product.title}</p>
+              </div>
+              <button
+                class="product-btn"
+                onclick="openProductDetails('${product.id}','${product.img}','${product.title}','${product.moreDetails}','${product.price}','${product.productOptionImage}','${product.typeOfProduct}')"
+              >
+                Подробнее
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> `
       }
+    }
+    const swiperDefultSetting = {
+      slidesPerView: 4,
+      spaceBetween: 35,
+      direction: 'horizontal',
+      loop: true,
+      watchOverflow: false
     }
     const swiperBreakpoits = {
       350: {
@@ -45,94 +72,116 @@ const fetchData = async () => {
         spaceBetween: 6
       },
       780: {
+        slidesPerView: 2,
+        spaceBetween: 10
+      },
+      1000: {
         slidesPerView: 3,
         spaceBetween: 35
       },
-      1000: {
+      1290: {
         slidesPerView: 4,
         spaceBetween: 35
       }
     }
-    const swiper1 = new Swiper('.swiper', {
-      slidesPerView: 4,
-      spaceBetween: 35,
-      direction: 'horizontal',
-      loop: true,
+    const swiperESigsBlock = new Swiper('.eSigsBlock', {
+      ...swiperDefultSetting,
       navigation: {
-        nextEl: '.nextslides'
+        nextEl: '#eSigsBlocknextBtn'
       },
       breakpoints: swiperBreakpoits
     })
-    const swiper2 = new Swiper('.swiper2', {
-      slidesPerView: 4,
-      spaceBetween: 35,
-      direction: 'horizontal',
-      loop: true,
+    const swiperChewingGumBlcok = new Swiper('.chewingGumBlcok', {
+      ...swiperDefultSetting,
       navigation: {
-        nextEl: '.nextslides2'
+        nextEl: '#chewingGumnexBtn'
       },
       breakpoints: swiperBreakpoits
     })
-    const swiper3 = new Swiper('.swiper3', {
-      slidesPerView: 4,
-      spaceBetween: 35,
-      direction: 'horizontal',
-      loop: true,
+    const swiperIqosBlock = new Swiper('.iqosBlock', {
+      ...swiperDefultSetting,
       navigation: {
-        nextEl: '.nextslides3'
+        nextEl: '#iqosBlocknexBtn'
       },
       breakpoints: swiperBreakpoits
     })
-    const swiper4 = new Swiper('.swiper4', {
-      slidesPerView: 4,
-      spaceBetween: 35,
-      direction: 'horizontal',
-      loop: true,
+    const swiperSticksBlock = new Swiper('.sticksBlock', {
+      ...swiperDefultSetting,
       navigation: {
-        nextEl: '.nextslides4'
+        nextEl: '#sticksBlocknexBtn'
       },
       breakpoints: swiperBreakpoits
     })
-    const reviewsSwiper = new Swiper('.slider-container', {
+    const reviewsSwiper = new Swiper('.reviews', {
       slidesPerView: 3,
       spaceBetween: 31,
       direction: 'horizontal',
-      loop: true,
+      // loop: true,
       navigation: {
-        nextEl: '#review__prev',
-        prevEl: '#review__next'
+        nextEl: '#nextReview',
+        prevEl: '#prevReview'
       },
+      watchOverflow: false,
       breakpoints: {
         350: {
           slidesPerView: 1,
           spaceBetween: 10
         },
         500: {
-          slidesPerView: 2,
+          slidesPerView: 1,
           spaceBetween: 20
         },
         780: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 35
         },
         1000: {
           slidesPerView: 3,
           spaceBetween: 20
         }
+      },
+      on: {
+        slideChange: function () {
+          if (reviewsSwiper.isBeginning) {
+            reviewsSwiper.navigation.prevEl[0].style.display = 'none'
+            reviewsSwiper.navigation.nextEl[0].style.display = 'block'
+          }
+          if (reviewsSwiper.isEnd) {
+            reviewsSwiper.navigation.prevEl[0].style.display = 'block'
+            reviewsSwiper.navigation.nextEl[0].style.display = 'none'
+          }
+        }
       }
-      // breakpoints: swiperBreakpoits
     })
-    // <a href="${`./product-details.html`}"></a>
     HTMLTemplate(eSigsBlock, eSigs)
     HTMLTemplate(chewingGumBlock, chewingGum)
     HTMLTemplate(iqosBlock, iqos)
     HTMLTemplate(sticksBlock, sticks)
+
     return { eSigs, chewingGum, iqos, sticks }
   } catch (error) {
     console.error('Error fetching data:', error)
   }
 }
 fetchData()
+
+let moreButtonState = false
+reviewBlockBtns.forEach((moreBtn) => {
+  moreBtn.addEventListener('click', () => {
+    moreButtonState = !moreButtonState
+    if (moreButtonState) {
+      moreBtn.parentNode.querySelector('.text').style.height = 'max-content'
+      moreBtn.textContent = 'свернуть'
+    } else {
+      if (outerWidth > 500) {
+        moreBtn.parentNode.querySelector('.text').style.height = '170px'
+      } else if (outerWidth < 500) {
+        moreBtn.parentNode.querySelector('.text').style.height = '94px'
+      }
+      moreBtn.textContent = 'подробнее...'
+    }
+  })
+})
 
 document.addEventListener('DOMContentLoaded ', function () {
   var downloadTrigger = document.getElementById('downloadTrigger')
@@ -251,7 +300,9 @@ const openProductDetails = (id, img, title, details, price, productOptionImage, 
          <div class="product__img_container">
           <img src="${img}" alt="product" class="product__img" />
           <div class="product__img_menu-container">
-            ${neWproductOptionImage.map((item) => `<img src='${item}' alt='product' class='product__img_manu' />`)}
+            ${neWproductOptionImage
+              .map((item) => `<img src='${item}' alt='product' class='product__img_manu' />`)
+              .join('')}
           </div>
           <div class="productMobal_add_price-container">
             <div class="product__price_container">${price}<span>Р</span></div>
@@ -278,7 +329,7 @@ const openProductDetails = (id, img, title, details, price, productOptionImage, 
           </div>
           <div class="product__description_container">${details}</div>
           <div class="product__price_contianer">
-            <div class="product__price_container">${price}<span>Р</span></div>
+            <div class="product__price_container">${price} <span>&#8381;</span></div>
             <button type="button" class="product__add-basket_btn" id = "product__add-basket_btn"onclick="addbasketProductStorage('${img}','${title}','${price}')">Добавить в корзину</button>
           </div>
         </div>

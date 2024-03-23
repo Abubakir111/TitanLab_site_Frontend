@@ -6,27 +6,25 @@
     <title>TitanLab</title>
     <link rel="stylesheet" href="./css/styles1.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
   </head>
   <body>
     <header>
       <div class="header-content" id="header">
-        <img src="./images/icons/logo.png" alt="Your Image" class="header-image" />
-        <!--ap23pa.png  -->
+        <a href="#imagenavigation"> <img src="./images/icons/logo.png" alt="Your Image" class="header-image" /> </a>
+
         <div class="header-mobil-container">
-          <img class="header-mobil-logo" src="./images/icons/logo.png" alt="" />
+          <a href="#imagenavigation">
+            <img class="header-mobil-logo" src="./images/icons/logo.png" alt="" />
+          </a>
           <span class="brand-title">TITAN LAB</span>
         </div>
         <div class="header-actions">
           <button class="cart">
-            <!--Vector.png -->
-            <!-- onmouseover="showCart()" -->
-            <!-- onmouseout="hideCart()" -->
             <img
-              src="./images/icons/basket.png"
+              src="./images/icons/basket.svg"
               alt="Корзина"
               id="cart-image"
-              class="cart-image"
+              class="cart-imag"
               onclick="openBasker()"
             />
             <div class="cart-count" id="cart">0</div>
@@ -49,9 +47,9 @@
                   <ul class="burger-modal-ul">
                     <li class="burger-modal-li"><a href="#imagenavigation">Главная</a></li>
                     <li class="burger-modal-li"><a href="#product">Каталог</a></li>
+                    <li class="burger-modal-li"><a href="#about-company">О компании</a></li>
                     <li class="burger-modal-li"><a href="#reviews">Отзывы</a></li>
                     <li class="burger-modal-li"><a href="#footer-contact">Контакты</a></li>
-                    <li class="burger-modal-li"><a href="#about-company">О компании</a></li>
                   </ul>
                 </nav>
                 <div class="burger-modal-btn-container">
@@ -68,7 +66,7 @@
               onclick="openMobalBurger()"
             />
           </div>
-          <div id="myForm" class="form-popup" style="z-index: 500">
+          <div id="myForm" class="form-popup">
             <div>
               <form action="submit.php" class="form-container" method="POST">
                 <button class="form-popup-crose-btn" onclick="closeForm()">
@@ -127,20 +125,33 @@
       <div class="navbar_animation"></div>
     </nav>
     <div class="main_unit-container" id="main_unit-container">
-      <div class="slider-container-img">
-        <div class="slider" id="imagenavigation">
-          <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="ElfBar" />
-          <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="Image 2" />
-          <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="Image 3" />
+      <div class="block_fixed_headee" id="imagenavigation"></div>
+      <div class="swiper_baner">
+        <!-- Additional required wrapper -->
+        <button class="nextslide_baner" id="nextslide_baner">
+          <img src="./images/icons/Right_аrrow.png" alt="" />
+        </button>
+        <button class="prevslide_baner" id="prevslide_baner">
+          <img src="./images/icons/Left_аrrow.png" alt="" />
+        </button>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="ElfBar" />
+          </div>
+          <div class="swiper-slide">
+            <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="ElfBar" />
+          </div>
+          <div class="swiper-slide">
+            <img class="imagenavigation" src="./images/slider_baner1.jpg" alt="ElfBar" />
+          </div>
         </div>
-        <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
       </div>
       <section class="feature-section">
         <div class="feature-container">
           <div class="feature-item">
-            <div class="feature-item-img">
-              <img src="./images/delivery.png" alt="ElfBar" />
+            <img src="./images/delivery.png" alt="ElfBar" class="feature-item-img-delivery-mobalil" />
+            <div class="feature-item-img feature-item-img-desktop">
+              <img src="./images/delivery.png" alt="ElfBar" class="feature-item-img-delivery" />
             </div>
             <div class="feature-title-container">
               <h3>Доставка</h3>
@@ -172,41 +183,41 @@
         <h3 class="title-product">Электронные сигареты</h3>
         <div class="swiper__silder_wrapp">
           <!-- onclick="moveSlide(1)" -->
-          <button class="nextslides">❯</button>
-          <div class="swiper">
+          <button class="nextslides" id="eSigsBlocknextBtn">❯</button>
+          <div class="eSigsBlock">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper" id="eSigs"></div>
           </div>
         </div>
       </section>
 
-      <section class="product-section product-section2">
+      <section class="product-section">
         <h3 class="title-product">Жевательный табак</h3>
         <div class="swiper__silder_wrapp">
-          <button class="nextslides2">❯</button>
-          <div class="swiper2">
+          <button class="nextslides2" id="chewingGumnexBtn">❯</button>
+          <div class="chewingGumBlcok">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper" id="chewingGum"></div>
           </div>
         </div>
       </section>
 
-      <section class="product-section product-section2">
+      <section class="product-section">
         <h3 class="title-product">IQOS</h3>
         <div class="swiper__silder_wrapp">
-          <button class="nextslides3">❯</button>
-          <div class="swiper3">
+          <button class="nextslides3" id="iqosBlocknexBtn">❯</button>
+          <div class="iqosBlock">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper" id="iqos"></div>
           </div>
         </div>
       </section>
 
-      <section class="product-section product-section2">
+      <section class="product-section">
         <h3 class="title-product">Стики</h3>
         <div class="swiper__silder_wrapp">
-          <button class="nextslides4">❯</button>
-          <div class="swiper4">
+          <button class="nextslides4" id="sticksBlocknexBtn">❯</button>
+          <div class="sticksBlock">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper" id="sticks"></div>
           </div>
@@ -236,23 +247,24 @@
           </p>
         </div>
       </section>
-      <section class="reviews" id="reviews">
-        <h1 class="section-title">Отзывы</h1>
-        <div class="slider-container-wrapp">
-          <div class="next" id="review__next">&#10095;</div>
-          <div class="prev" id="review__prev">&#10094;</div>
 
-          <div class="slider-container">
-            <div class="swiper-wrapper swiper_wrapper__reviews">
-              <div class="swiper-slide swiper_slide_review">
-                <div class="review">
-                  <div class="review-avatar-container">
-                    <img class="avatar" src="./images/avatar1.png" alt="Аватар 1 " />
-                    <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p class="nickname">ДЫМДымский</p>
-                  </div>
-                  <div class="text-container">
-                    <!-- <div class="text-more-btn">подробнее</div> -->
+      <div class="reviews-wrapp">
+        <h1 class="section-title">Отзывы</h1>
+        <div class="Test_review">
+          <div class="nextReview" id="nextReview">&#10095;</div>
+          <div class="prevReview" id="prevReview">&#10094;</div>
+          <section class="reviews">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="review__cart_wrapp">
+                  <div class="review__cart">
+                    <div class="review__more_btn">подробнее..</div>
+                    <div class="review-avatar-container">
+                      <img class="avatar" src="./images/avatar1.png" alt="Аватар 1 " />
+                      <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                      <p class="nickname">ДЫМДымский</p>
+                    </div>
+                    <!-- <div class="text-container"> -->
                     <div class="text">
                       Заказала себе недавно электронные сигареты WAKA и осталась очень довольна!<br />
                       Во-первых, устройство отличается крутым дизайном и удобной формой, во-вторых, были на связи в
@@ -262,18 +274,21 @@
                       оплаты счета до сверения кодов. Рекомендую всем, кто переходит на работу в белую. Доставили через
                       7 дней, как и говорили. Доставкой довольна.
                     </div>
+                    <!-- </div> -->
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide swiper_slide_review">
-                <div class="review">
-                  <div class="review-avatar-container">
-                    <img class="avatar" src="./images/avatar2.png" alt="Аватар 1 " />
-                    <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p class="nickname">Царь Пар</p>
-                  </div>
-                  <div class="text-container">
-                    <!-- <div class="text-more-btn">подробнее</div> -->
+              <div class="swiper-slide">
+                <div class="review__cart_wrapp">
+                  <div class="review__cart">
+                    <div class="review__more_btn">подробнее..</div>
+
+                    <div class="review-avatar-container">
+                      <img class="avatar" src="./images/avatar2.png" alt="Аватар 1 " />
+                      <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                      <p class="nickname">Царь Пар</p>
+                    </div>
+                    <!-- <div class="text-container"> -->
                     <div class="text">
                       Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него бросают курить.
                       <br />
@@ -282,17 +297,20 @@
                       продукта и хорошая маржинальность для акцизных товаров.Поставщику спасибо за оперативность, желаем
                       дальнейшего процветания!
                     </div>
+                    <!-- </div> -->
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide swiper_slide_review">
-                <div class="review">
-                  <div class="review-avatar-container">
-                    <img class="avatar" src="./images/avatar3.png" alt="Аватар 1 " />
-                    <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                    <p class="nickname">Денис Погодин</p>
-                  </div>
-                  <div class="text-container">
+              <div class="swiper-slide">
+                <div class="review__cart_wrapp">
+                  <div class="review__cart">
+                    <div class="review__more_btn">подробнее..</div>
+                    <div class="review-avatar-container">
+                      <img class="avatar" src="./images/avatar3.png" alt="Аватар 1 " />
+                      <p class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                      <p class="nickname">Денис Погодин</p>
+                    </div>
+                    <!-- <div class="text-container"> -->
                     <div class="text">
                       Курю уже более 2-х лет, срок не большой, очень хочу бросить. Думаю, что данный продукт достаточно
                       эффективен как способ просить курить. В основном зависимость возникает не от никотина, а от
@@ -303,13 +321,14 @@
                       <br /><br />Интересная вещь, для тех кто устал от сигарет и электронок многие с помощью него
                       бросают курить.
                     </div>
+                    <!-- </div> -->
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
       <section class="section-documents" id="section-documents">
         <h1 class="title-document">Документы и сертификаты</h1>
         <div class="documnets-container">
@@ -364,7 +383,7 @@
             /></a>
           </div>
         </div>
-        <img src="./images/icons/logo_title.png" alt="logo" class="TITANLOGOAPP" />
+        <a href="#imagenavigation"> <img src="./images/icons/logo_title.png" alt="logo" class="TITANLOGOAPP" /></a>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
