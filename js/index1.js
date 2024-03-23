@@ -270,6 +270,7 @@ const deletProductStorage = (id) => {
   const newProductStorage = ProductsStorage.filter((elem, index) => index !== id)
   localStorage.setItem('productData', JSON.stringify(newProductStorage))
   basketProductHtml(basketModlContent, newProductStorage)
+  basketCount.textContent = newProductStorage.length
 }
 
 burgerModalLiNav.forEach((nav) => {
@@ -336,10 +337,6 @@ const openProductDetails = (id, img, title, details, price, productOptionImage, 
   `
 }
 
-// window.addEventListener('storage', function (e) {
-//   console.log(e)
-// })
-
 const addbasketProductStorage = (img, title, price) => {
   const typeoFProduct = document.getElementById('product__options').value
   const quantity = Number(document.getElementById('product_input').value)
@@ -347,6 +344,7 @@ const addbasketProductStorage = (img, title, price) => {
   addnewProduct.push({ img: img, title: title, price: Number(price), typeoFProduct: typeoFProduct, quantity: quantity })
   localStorage.setItem('productData', JSON.stringify(addnewProduct))
   basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length
+  basketProductHtml(basketModlContent, addnewProduct)
 }
 
 function submitForm() {
@@ -383,7 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navbarLinks.forEach((link) => link.classList.remove('active'))
       this.classList.add('active')
       updateAnimationPosition(this)
-
       const targetId = this.getAttribute('href').substring(1)
       scrollToSection(targetId)
     })
@@ -443,48 +440,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 })
-
-const sliderImages = document.querySelectorAll('.imagenavigation')
-const sliderElement = document.querySelector('.slider')
-let currentSliden = 0
-
-function changeSlide(direction) {
-  if (direction === -1) {
-    if (currentSlide === 0) {
-      return
-    }
-    currentSlide--
-  } else {
-    if (currentSlide === sliderImages.length - 1) {
-      currentSlide = 0
-    } else {
-      currentSlide++
-    }
-  }
-  sliderElement.style.transform = `translateX(-${currentSlide * sliderImages[0].clientWidth}px)`
-}
-
-let currentSlide = 0
-const totalSlides = document.querySelectorAll('.slide').length
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides
-  updateSlider()
-}
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % totalSlides
-  updateSlider()
-}
-
-function updateSlider() {
-  const slideWidth = document.querySelector('.review').offsetWidth + 20 // 20px - margin-right
-  const newTransformValue = -currentSlide * slideWidth + 'px'
-  document.querySelector('.slides').style.transform = 'translateX(' + newTransformValue + ')'
-}
-function toggleMenu() {
-  var navbar = document.getElementById('navbar')
-  navbar.style.display = navbar.style.display === 'block' ? 'none' : 'block'
-  var burgerMenu = document.querySelector('.burger-menu')
-  burgerMenu.classList.toggle('active')
-}
