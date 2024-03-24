@@ -32,8 +32,10 @@ const fetchData = async () => {
     const chewingGumBlock = document.querySelector('#chewingGum')
     const iqosBlock = document.querySelector('#iqos')
     const sticksBlock = document.querySelector('#sticks')
+
     const HTMLTemplate = (idElement, data) => {
       for (let product of data) {
+        const new_test = JSON.stringify(product)
         idElement.innerHTML += ` 
       <div class="swiper-slide">
         <div class="product-contaianer-wrapp">
@@ -45,7 +47,8 @@ const fetchData = async () => {
               </div>
               <button
                 class="product-btn"
-                onclick="openProductDetails('${product.id}','${product.img}','${product.title}','${product.moreDetails}','${product.price}','${product.productOptionImage}','${product.typeOfProduct}')"
+                data-test = '${new_test}'
+             
               >
                 Подробнее
               </button>
@@ -158,11 +161,63 @@ const fetchData = async () => {
     HTMLTemplate(iqosBlock, iqos)
     HTMLTemplate(sticksBlock, sticks)
 
+    const test_product_data = document.querySelectorAll('.product-btn')
+    console.log(test_product_data)
+    test_product_data.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        mainUnitContainer.style.display = 'none'
+        productMainWrapp.style.display = 'flex'
+        const newproduct = e.target.getAttribute('data-test')
+        const Testproduct = JSON.parse(newproduct)
+        console.log(Testproduct)
+        const { img, moreDetails, productOptionImage, title, typeOfProduct, price } = Testproduct
+        productMain.innerHTML = `
+       <div class="product__img_container">
+        <img src="${img}" alt="product" class="product__img" />
+        <div class="product__img_menu-container">
+          ${productOptionImage.map((item) => `<img src='${item}' alt='product' class='product__img_manu' />`).join('')}
+        </div>
+        <div class="productMobal_add_price-container">
+          <div class="product__price_container">${price}<span>Р</span></div>
+          <button type="button" class="product__add-basket_btn">Добавить в корзину</button>
+        </div>
+      </div>
+      <div class="product__info_container">
+        <div class="product__title_contianer">
+          <h1>${title}</h1>
+          <div class="product__view-quantity_container">
+            <div class="product__title_container">
+              <div class="product__title">Вид</div>
+              <select class="product__options" id="product__options">
+                       ${typeOfProduct
+                         .map((item) => `<option value='${item.type}' id ="${item.id}">${item.type}</option>`)
+                         .join('')}
+              </select>
+            </div>
+            <div class="c_title_container">
+              <div class="product__title_container">
+                <div class="product__title">Кол-во</div>
+              <input class="product__options product_input" id ="product_input" type="number" value="1">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product__description_container">${moreDetails}</div>
+        <div class="product__price_contianer">
+          <div class="product__price_container">${price} <span>&#8381;</span></div>
+          <button type="button" class="product__add-basket_btn" id = "product__add-basket_btn"onclick="addbasketProductStorage('${img}','${title}','${price}')">Добавить в корзину</button>
+        </div>
+      </div>
+`
+      })
+    })
+
     return { eSigs, chewingGum, iqos, sticks }
   } catch (error) {
     console.error('Error fetching data:', error)
   }
 }
+
 fetchData()
 
 let moreButtonState = false
@@ -224,6 +279,7 @@ const openForm = () => {
 }
 const basketProductHtml = (basketModlContent, storageProduct) => {
   let summ = 0
+  // console.log(storageProduct)
   storageProduct.forEach((count) => {
     count.quantity > 1 ? (summ += count.price * count.quantity) : (summ += count.price)
   })
@@ -235,7 +291,7 @@ const basketProductHtml = (basketModlContent, storageProduct) => {
                        <div class="basketModal-img-container">
                          <img src="${item.img}" />
                          <div class="basketModal-title-container">
-                           <h3>${item.title} <p class ="basket__title_view">${item.typeoFProduct}</p></h3>
+                           <h3>${item.title} <p class ="basket__title_view">${item.typeOFProduct}</p></h3>
                            <p>${item.quantity} штук</p>
                          </div>
                        </div>
@@ -291,60 +347,50 @@ navItem.forEach((nav) => {
   })
 })
 
-const openProductDetails = (id, img, title, details, price, productOptionImage, typeOfProduct) => {
-  mainUnitContainer.style.display = 'none'
-  productMainWrapp.style.display = 'flex'
-  const productId = Number(id)
-  const arraytypeOfProduct = typeOfProduct.split(',')
-  let neWproductOptionImage = productOptionImage.split(',')
-  productMain.innerHTML = `
-         <div class="product__img_container">
-          <img src="${img}" alt="product" class="product__img" />
-          <div class="product__img_menu-container">
-            ${neWproductOptionImage
-              .map((item) => `<img src='${item}' alt='product' class='product__img_manu' />`)
-              .join('')}
-          </div>
-          <div class="productMobal_add_price-container">
-            <div class="product__price_container">${price}<span>Р</span></div>
-            <button type="button" class="product__add-basket_btn">Добавить в корзину</button>
-          </div>
-        </div>
-        <div class="product__info_container">
-          <div class="product__title_contianer">
-            <h1>${title}</h1>
-            <div class="product__view-quantity_container">
-              <div class="product__title_container">
-                <div class="product__title">Вид</div>
-                <select class="product__options" id="product__options">
-                  ${arraytypeOfProduct.map((item) => `<option value="${item}">${item}</option>`)}
-                </select>
-              </div>
-              <div class="c_title_container">
-                <div class="product__title_container">
-                  <div class="product__title">Кол-во</div>
-                <input class="product__options product_input" id ="product_input" type="number" value="1">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="product__description_container">${details}</div>
-          <div class="product__price_contianer">
-            <div class="product__price_container">${price} <span>&#8381;</span></div>
-            <button type="button" class="product__add-basket_btn" id = "product__add-basket_btn"onclick="addbasketProductStorage('${img}','${title}','${price}')">Добавить в корзину</button>
-          </div>
-        </div>
-  `
-}
-
 const addbasketProductStorage = (img, title, price) => {
-  const typeoFProduct = document.getElementById('product__options').value
+  const typeoFProduct = document.getElementById('product__options')
   const quantity = Number(document.getElementById('product_input').value)
+  const typeID = typeoFProduct.options[typeoFProduct.selectedIndex].id
+  const typeValue = typeoFProduct.value
+  console.log(quantity)
   addnewProduct = JSON.parse(localStorage.getItem('productData'))
-  addnewProduct.push({ img: img, title: title, price: Number(price), typeoFProduct: typeoFProduct, quantity: quantity })
-  localStorage.setItem('productData', JSON.stringify(addnewProduct))
-  basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length
+  let newQuantity = 0
+  if (quantity == 0) {
+    newQuantity = 1
+    document.getElementById('product_input').value = newQuantity
+  } else newQuantity = quantity
+  if (addnewProduct.length == 0) {
+    addnewProduct.push({
+      img: img,
+      title: title,
+      quantity: newQuantity,
+      typeID: Number(typeID),
+      typeOFProduct: typeValue,
+      price: Number(price)
+    })
+    localStorage.setItem('productData', JSON.stringify(addnewProduct))
+  } else {
+    addnewProduct = addnewProduct.map((item) => {
+      if (item.title === title && item.typeID === Number(typeID)) {
+        ;(item.quantity = item.quantity + newQuantity), (item.price = item.price + Number(price))
+        return item
+      } else return item
+    })
+    let isFound = addnewProduct.some((item) => item.title === title && item.typeID === Number(typeID))
+    if (!isFound) {
+      addnewProduct.push({
+        img: img,
+        title: title,
+        quantity: newQuantity,
+        typeID: Number(typeID),
+        typeOFProduct: typeValue,
+        price: Number(price)
+      })
+    }
+    localStorage.setItem('productData', JSON.stringify(addnewProduct))
+  }
   basketProductHtml(basketModlContent, addnewProduct)
+  basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length
 }
 
 function submitForm() {
@@ -370,7 +416,6 @@ function submitForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const navbarLinks = document.querySelectorAll('.navbar a')
-  // Устанавливаем обработчик событий для скролла
   window.addEventListener('scroll', () => {
     updateActiveNav()
   })
