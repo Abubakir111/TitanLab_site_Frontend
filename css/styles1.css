@@ -485,6 +485,11 @@ header {
   right: -36px;
   border-radius: 3px;
   background: rgb(206, 206, 206);
+  color: #000;
+  display: flex;
+  /* font-size: 11px; */
+  justify-content: center;
+  align-items: center;
 }
 
 .product-slider-container {
@@ -806,7 +811,12 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 3;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(15px); */
+  background: #171717f0;
+  /* backdrop-filter: blur(10px); 
+  background: #050505c2;
+  backdrop-filter: blur(5px); */
+
   padding: 0px 45px;
 }
 
@@ -877,23 +887,24 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: rgba(255, 255, 255, 0.733); */
   justify-content: center;
   align-items: center;
   z-index: 99999;
   /* Положим окно поверх мутного фона */
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
+  background: rgb(158 158 158 / 90%);
 }
 
 .form-container {
   border-radius: 40px;
   font-size: 24px;
-  background: rgba(248, 248, 248, 0.7);
+  background: rgb(248 248 248);
   padding: 32px 85px;
   z-index: 2;
   position: relative;
   border: 1px solid rgb(188 193 190);
-  backdrop-filter: blur(27px);
+  /* backdrop-filter: blur(27px); */
 }
 .close {
   cursor: pointer;
@@ -1590,7 +1601,6 @@ header {
   .form-container {
     border-radius: 40px;
     font-size: 24px;
-    background: rgba(248, 248, 248, 0.7);
     padding: 32px 43px;
   }
   .product-contaianer {
@@ -2227,6 +2237,12 @@ s */
     --headerWidth: 64px;
     --NaviganteWidth: 43px;
   }
+  .modal-content p {
+    font-size: 12px;
+  }
+  .info-age {
+    font-size: 12px;
+  }
   .form-container {
     padding: 32px 0px;
     font-size: 16px;
@@ -2425,7 +2441,7 @@ s */
   .nextslides4 {
     width: 19px;
     height: 19px;
-    font-size: 12px;
+    font-size: 10px;
   }
   .about-company-section {
     display: flex;
@@ -2436,7 +2452,10 @@ s */
   .nextReview {
     width: 19px;
     height: 19px;
-    font-size: 12px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .reviews-wrapp {
     margin-top: 38px;
