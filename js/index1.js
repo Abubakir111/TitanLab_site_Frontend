@@ -23,7 +23,6 @@ const swiperBanner = new Swiper('.swiper_baner', {
     prevEl: '#prevslide_baner'
   }
 });
-
 const fetchData = async () => {
   try {
     const response = await fetch('./dataProduct/dataProduct.json');
@@ -197,7 +196,7 @@ const fetchData = async () => {
             <div class="c_title_container">
               <div class="product__title_container">
                 <div class="product__title">Кол-во</div>
-              <input class="product__options product_input" id ="product_input" type="number" value="1">
+              <input class="product__options product_input"  id ="product_input"  oninput="quantityField(event)" type="number" value="1">
               </div>
             </div>
           </div>
@@ -279,9 +278,8 @@ const openForm = () => {
 };
 const basketProductHtml = (basketModlContent, storageProduct) => {
   let summ = 0;
-  // console.log(storageProduct)
   storageProduct.forEach((count) => {
-    count.quantity > 1 ? (summ += count.price * count.quantity) : (summ += count.price);
+    count.quantity > 1 ? (summ += count.totalPrice) : (summ += count.price);
   });
   basketModlContent.innerHTML = `<div class="basketModal-product-block-wrapp">
                  ${storageProduct
@@ -315,8 +313,8 @@ const openMobalBurger = () => {
 };
 const closeMobalBurger = () => (mobilBurgerModal.style.display = 'none');
 const openBasker = () => {
-  basketModl.style.display = 'block';
-  if (basketModl.style.display == 'block') mobilBurgerModal.style.display = 'none';
+  basketModl.style.display = 'flex';
+  if (basketModl.style.display == 'flex') mobilBurgerModal.style.display = 'none';
   const basketProducts = JSON.parse(localStorage.getItem('productData'));
   basketProductHtml(basketModlContent, basketProducts);
 };
@@ -346,50 +344,71 @@ navItem.forEach((nav) => {
     }
   });
 });
-
+const ClickHomePage = () => {
+  if (mainUnitContainer.style.display == 'none' && productMainWrapp.style.display == 'flex') {
+    mainUnitContainer.style.display = 'block';
+    productMainWrapp.style.display = 'none';
+  }
+};
+const quantityField = (e) => {
+  if (e.target.value.length == 2) {
+    let firstNumber = parseInt(e.target.value.charAt(0), 10);
+    if (firstNumber == 0) document.getElementById('product_input').value = 1;
+  }
+  if (e.target.value < 0) document.getElementById('product_input').value = 1;
+};
 const addbasketProductStorage = (img, title, price) => {
   const typeoFProduct = document.getElementById('product__options');
   const quantity = Number(document.getElementById('product_input').value);
   const typeID = typeoFProduct.options[typeoFProduct.selectedIndex].id;
   const typeValue = typeoFProduct.value;
-  console.log(quantity);
+
   addnewProduct = JSON.parse(localStorage.getItem('productData'));
   let newQuantity = 0;
   if (quantity == 0) {
     newQuantity = 1;
     document.getElementById('product_input').value = newQuantity;
   } else newQuantity = quantity;
+
   if (addnewProduct.length == 0) {
+    let sum = 0;
+    if (newQuantity > 1) sum = Number(price) * newQuantity;
     addnewProduct.push({
       img: img,
       title: title,
       quantity: newQuantity,
       typeID: Number(typeID),
       typeOFProduct: typeValue,
-      price: Number(price)
+      price: Number(price),
+      totalPrice: sum
     });
     localStorage.setItem('productData', JSON.stringify(addnewProduct));
   } else {
     addnewProduct = addnewProduct.map((item) => {
       if (item.title === title && item.typeID === Number(typeID)) {
-        (item.quantity = item.quantity + newQuantity), (item.price = item.price + Number(price));
+        (item.quantity = item.quantity + newQuantity), (item.totalPrice = item.quantity * item.price);
         return item;
       } else return item;
     });
     let isFound = addnewProduct.some((item) => item.title === title && item.typeID === Number(typeID));
     if (!isFound) {
+      let sum = 0;
+      if (newQuantity > 1) sum = Number(price) * newQuantity;
       addnewProduct.push({
         img: img,
         title: title,
         quantity: newQuantity,
         typeID: Number(typeID),
         typeOFProduct: typeValue,
-        price: Number(price)
+        price: Number(price),
+        totalPrice: sum
       });
     }
+
     localStorage.setItem('productData', JSON.stringify(addnewProduct));
   }
   basketProductHtml(basketModlContent, addnewProduct);
+
   basketCount.textContent = JSON.parse(localStorage.getItem('productData')).length;
 };
 

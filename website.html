@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TitanLab</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=CSS.supports"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=CSS.supports"></script> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?flags=gated"></script>
 
     <link rel="stylesheet" href="./css/styles1.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -12,13 +13,17 @@
   <body>
     <header>
       <div class="header-content" id="header">
-        <a href="#imagenavigation"> <img src="./images/icons/logo.png" alt="Your Image" class="header-image" /> </a>
+        <a href="#imagenavigation" onclick="ClickHomePage()">
+          <img src="./images/icons/logo.png" alt="Your Image" class="header-image" />
+        </a>
 
         <div class="header-mobil-container">
-          <a href="#imagenavigation">
+          <a href="#imagenavigation" onclick="ClickHomePage()">
             <img class="header-mobil-logo" src="./images/icons/logo.png" alt="" />
           </a>
-          <span class="brand-title">TITAN LAB</span>
+          <a href="#imagenavigation">
+            <span class="brand-title" onclick="ClickHomePage()">TITAN LAB</span>
+          </a>
         </div>
         <div class="header-actions">
           <button class="cart">
@@ -386,7 +391,9 @@
             /></a>
           </div>
         </div>
-        <a href="#imagenavigation"> <img src="./images/icons/logo_title.png" alt="logo" class="TITANLOGOAPP" /></a>
+        <a href="#imagenavigation" onclick="ClickHomePage()">
+          <img src="./images/icons/logo_title.png" alt="logo" class="TITANLOGOAPP"
+        /></a>
       </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
