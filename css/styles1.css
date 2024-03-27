@@ -667,16 +667,20 @@ header {
   letter-spacing: 1px;
   text-align: center;
   overflow-y: hidden;
+  margin-bottom: 6px;
 }
 
 .review__more_btn {
+  width: max-content;
   display: block;
   bottom: 7px;
-  right: 9px;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 15px;
   color: rgb(0, 117, 255);
   cursor: pointer;
+  /* margin-bottom: 5px; */
 }
 .text {
   height: 170px;
@@ -807,24 +811,18 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
   z-index: 3;
-  /* backdrop-filter: blur(15px); */
-  background: #171717f0;
-  /* backdrop-filter: blur(10px); 
-  background: #050505c2;
-  backdrop-filter: blur(5px); */
-
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   padding: 0px 45px;
 }
 
 .modal-content {
   width: 100%;
   min-height: 260px;
-  /* height: 100%; */
-  background-color: #f8f8f8b2;
+  background: rgba(248, 248, 248, 0.7);
   border-radius: 22px;
   display: flex;
   flex-direction: column;
@@ -832,6 +830,7 @@ header {
   align-items: center;
   row-gap: 23px;
   padding: 20px 0px;
+  border: 1px solid #c0c0c06b;
 }
 
 .modal-content p {
@@ -887,24 +886,22 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(255, 255, 255, 0.733); */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   justify-content: center;
   align-items: center;
   z-index: 99999;
   /* Положим окно поверх мутного фона */
-  /* backdrop-filter: blur(10px); */
-  background: rgb(158 158 158 / 90%);
 }
 
 .form-container {
   border-radius: 40px;
   font-size: 24px;
-  background: rgb(248 248 248);
+  background: rgba(248, 248, 248, 0.7);
   padding: 32px 85px;
   z-index: 2;
   position: relative;
   border: 1px solid rgb(188 193 190);
-  /* backdrop-filter: blur(27px); */
 }
 .close {
   cursor: pointer;
@@ -1231,7 +1228,7 @@ header {
   border-radius: 4px;
 }
 .product_input {
-  border: none;
+  text-align: center;
 }
 .product__description_container {
   text-align: justify;
@@ -1621,8 +1618,8 @@ header {
   }
   .product-btn {
     width: 123.15px;
-    height: 14.15px;
-    font-size: 8px;
+    height: 20.15px;
+    font-size: 0.7rem;
   }
   .product-block-img-container {
     row-gap: 6px;
@@ -2266,7 +2263,8 @@ s */
     font-size: 13px;
   }
   .form-content .form-popup-massage {
-    padding: 0px 50px;
+    text-align: center;
+    font-size: 12px;
   }
   .button-Form {
     width: 204px;
@@ -2421,7 +2419,7 @@ s */
     display: block;
   }
   .modal {
-    padding: 0px 5px;
+    padding: 0px 13px;
   }
   .title-product {
     font-size: 12px;
